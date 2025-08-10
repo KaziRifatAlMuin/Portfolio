@@ -1,0 +1,153 @@
+<!-- FILE: index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kazi Rifat Al Muin — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#7c3aed; --glass:rgba(255,255,255,0.04);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,#071023 0%,var(--bg) 60%);color:#e6eef8}
+    .page{max-width:1100px;margin:32px auto;padding:28px}
+    header{display:flex;gap:16px;align-items:center}
+    .avatar{width:96px;height:96px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:grid;place-items:center;font-weight:800;font-size:28px}
+    h1{margin:0 0 4px 0;font-size:22px}
+    .sub{color:var(--muted);margin:0}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:22px}
+    .left{grid-column:span 4}
+    .right{grid-column:span 8}
+
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .muted{color:var(--muted);font-size:13px}
+
+    .cp-card{display:flex;align-items:center;gap:12px}
+    .cp-score{font-size:40px;font-weight:800;color:var(--accent)}
+    .links a{display:inline-block;margin-right:10px;padding:6px 10px;border-radius:8px;background:var(--glass);text-decoration:none;color:#fff;font-weight:600}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .pill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03)}
+
+    .projects{display:grid;gap:12px}
+    .proj{display:flex;justify-content:space-between;gap:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+    .proj h4{margin:0}
+    .cta{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:700}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* small screens */
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.left{grid-column:span 12}.right{grid-column:span 12}}
+
+    /* small UI flourishes */
+    .cursor-typer{font-weight:700;color:transparent;background:linear-gradient(90deg,#fff, #c7d2fe);-webkit-background-clip:text;background-clip:text}
+    .nav{display:flex;gap:8px;align-items:center;margin-left:auto}
+    .nav button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:8px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="avatar">RA</div>
+      <div>
+        <h1>Kazi Rifat Al Muin <span class="muted">• Competitive Programmer &amp; CSE Student</span></h1>
+        <p class="sub">3rd year, Dept. of CSE, Khulna University of Engineering &amp; Technology (KUET) — focused on algorithms, problem solving, and system design</p>
+      </div>
+      <nav class="nav">
+        <button id="themeToggle">Toggle UI</button>
+        <button id="downloadCV">Download CV</button>
+      </nav>
+    </header>
+
+    <div class="grid">
+      <aside class="left">
+        <div class="card">
+          <h3>Highlights</h3>
+          <p class="muted">Coding vibe: competitive programming is front-and-center.</p>
+
+          <div style="margin-top:10px" class="cp-card">
+            <div>
+              <div class="cp-score" id="cfRating">1475</div>
+              <div class="muted">Codeforces — max rating (reported)</div>
+            </div>
+            <div style="flex:1">
+              <div class="links" id="profileLinks">
+                <!-- populated by JS -->
+              </div>
+              <div class="skills" style="margin-top:10px">
+                <span class="pill">C / C++</span>
+                <span class="pill">DSA</span>
+                <span class="pill">OOP</span>
+                <span class="pill">Web (HTML, JS, PHP)</span>
+                <span class="pill">Problem Solving</span>
+              </div>
+            </div>
+          </div>
+
+          <hr style="margin:12px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
+          <div>
+            <strong>Contact</strong>
+            <p class="muted" id="contactSmall">Email: kazirifatalmuin246@gmail.com</p>
+            <a class="muted" href="#contact">Send message</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Quick Stats</h3>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+            <div class="pill">Solved: 1000+ problems</div>
+            <div class="pill">Meta Hacker Cup 2024: Round 1 passed</div>
+            <div class="pill">ICPC World Finals participant (48th) — team representation</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="right">
+        <section class="card">
+          <h3>About me</h3>
+          <p class="muted">I am Rifat — a passionate competitive programmer who loves clean solutions, algorithm puzzles, and building tools that help me and my team win contests. My GitHub repositories include open-source judge helpers and academic projects.</p>
+          <p class="muted">I mentor students, have strong experience in C/C++ and OOP, and build small web apps. I aim to reach ICPC World Finals and keep polishing problem-solving skills.</p>
+        </section>
+
+        <section class="card" style="margin-top:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <h3>Selected Projects</h3>
+            <div class="muted">Filter: <select id="projFilter"><option value="all">All</option><option value="cp">Competitive</option><option value="web">Web</option><option value="academic">Academic</option></select></div>
+          </div>
+
+          <div class="projects" id="projectsList">
+            <!-- populated by JS -->
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:12px">
+          <h3 id="contact">Contact / Message</h3>
+          <form id="contactForm" action="contact.php" method="POST">
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <input required name="name" placeholder="Your name" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+              <input required name="email" type="email" placeholder="Your email" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+            </div>
+            <textarea required name="message" placeholder="Message" rows="5" style="margin-top:8px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;resize:vertical"></textarea>
+            <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+              <button type="submit" class="cta">Send Message</button>
+              <div id="formResult" class="muted"></div>
+            </div>
+          </form>
+        </section>
+
+      </main>
+    </div>
+
+    <footer>
+      Built with ❤️ — Kazi Rifat Al Muin
+    </footer>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
