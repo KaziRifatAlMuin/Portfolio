@@ -1,0 +1,31 @@
+# Build and VS caches
+bin/
+obj/
+.nuget/
+packages/
+.vs/
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+
+# IIS Express
+launchSettings.json
+
+# Publish
+*.Publish.xml
+*.pubxml
+*.pubxml.user
+
+# Logs
+*.log
+
+# Local data (keep App_Data/messages.txt private; store examples only)
+App_Data/*.md
+App_Data/*.tmp
+App_Data/*.bak
+
+# Temporary
+*.tmp
+*.temp
+~$*
