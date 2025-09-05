@@ -1,1 +1,7 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Portfolio.Global" Language="C#" %>
+<%@ Application Language="C#" %>
+<script runat="server">
+    void Application_Start(object sender, EventArgs e)
+    {
+        // Application startup logic (routes/caches) can go here.
+    }
+</script>
