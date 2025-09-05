@@ -1,53 +1,51 @@
 using System;
-using System.IO;
+using System.Net;
+using System.Net.Mail;
+using System.Web.UI;
+using System.Xml.Linq;
 
 namespace PortfolioWebForms
 {
-    public partial class Contact : System.Web.UI.Page
+    public partial class Contact : Page
     {
-        private object txtName;
-        private object txtEmail;
-        private object txtMessage;
-
-        protected void Page_Load(object sender, EventArgs e) { }
-
-        protected void btnSubmit_Click(object sender, EventArgs e)
+        protected void btnSend_Click(object sender, EventArgs e)
         {
-            if (!Page.IsValid) return;
+            string name = txtName?.Text.Trim();
+            string email = txtEmail?.Text.Trim();
+            string message = txtMessage?.Text.Trim();
 
-            // Starter: save to App_Data/messages.txt
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(message))
+            {
+                lblResult.Text = "Please fill out all fields.";
+                lblResult.CssClass = "text-danger";
+                return;
+            }
+
             try
             {
-                var name = txtName.Text.Trim();
-                var email = txtEmail.Text.Trim();
-                var message = txtMessage.Text.Trim();
-                string line = string.Format("{0:O}\t{1}\t{2}\t{3}", DateTime.UtcNow,
-                                         San(name), San(email), San(message));
+                var fromAddress = new MailAddress("youremail@gmail.com", "Portfolio Contact");
+                var toAddress = new MailAddress("recipientemail@gmail.com", "Your Name");
+                const string subject = "Contact Form Message";
+                string body = $"Name: {name}\nEmail: {email}\nMessage: {message}";
 
-                var path = Server.MapPath("~/App_Data/messages.txt");
-                Directory.CreateDirectory(Path.GetDirectoryName(path));
-                File.AppendAllText(path, line + Environment.NewLine);
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    Credentials = new NetworkCredential("youremail@gmail.com", "yourpassword")
+                };
 
-                txtName.Text = txtEmail.Text = txtMessage.Text = string.Empty;
-                pnlSuccess.Visible = true;
+                smtp.Send(fromAddress, toAddress, subject, body);
+
+                lblResult.Text = "Message sent successfully!";
+                lblResult.CssClass = "text-success";
             }
-            catch
+            catch (Exception ex)
             {
-                pnlSuccess.Visible = false;
-                // Keep error generic to avoid leaking server details.
-                Page.Validators.Add(new SimpleValidator("Saving failed. Please try again."));
+                lblResult.Text = $"Error: {ex.Message}";
+                lblResult.CssClass = "text-danger";
             }
-        }
-
-        private static string San(string s) =>
-            (s ?? string.Empty).Replace("\t", " ").Replace("\r", " ").Replace("\n", " ").Trim();
-
-        private class SimpleValidator : System.Web.UI.IValidator
-        {
-            public string ErrorMessage { get; set; }
-            public bool IsValid { get; set; } = false;
-            public SimpleValidator(string message) { ErrorMessage = message; }
-            public void Validate() { }
         }
     }
 }

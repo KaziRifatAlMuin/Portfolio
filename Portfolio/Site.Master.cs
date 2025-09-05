@@ -1,8 +1,13 @@
 using System;
-namespace Portfolio
+using System.Web.UI;
+
+namespace PortfolioWebForms
 {
-    public partial class Site : System.Web.UI.MasterPage
+    public partial class SiteMaster : MasterPage
     {
-        protected void Page_Load(object sender, EventArgs e) { }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            // Your code for handling the master page logic
+        }
     }
 }

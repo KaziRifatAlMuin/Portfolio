@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
-namespace Portfolio
+namespace PortfolioWebForms
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm1 : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Any dynamic content or logic can go here
         }
     }
 }

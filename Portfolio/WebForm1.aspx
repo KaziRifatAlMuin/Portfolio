@@ -1,17 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="Portfolio.WebForm1" %>
+﻿<%@ Page Title="WebForm1" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="PortfolioWebForms.WebForm1" %>
 
-<!DOCTYPE html>
+<asp:Content ID="TitleBlock" ContentPlaceHolderID="TitleContent" runat="server">WebForm1</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="Label1" runat="server" Text="Kazi Rifat Al Muin"></asp:Label>
-        </div>
-    </form>
-</body>
-</html>
-    
+<asp:Content ID="MainBlock" ContentPlaceHolderID="MainContent" runat="server">
+    <h2>Welcome to WebForm1</h2>
+    <p>This is a placeholder page for a form or content you can customize.</p>
+</asp:Content>
