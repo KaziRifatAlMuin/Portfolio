@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kazi Rifat Al Muin - Portfolio</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header id="header">
+        <div class="navbar">
+            <h1>Hi, I am Kazi Rifat Al Muin</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="section-img">
+        <div class="image-container">
+            <img src="images/about-bg.jpg" alt="About Me" class="about-image">
+        </div>
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I'm Kazi Rifat Al Muin, a CSE undergraduate at KUET with a passion for problem-solving and competitive programming. I have a strong foundation in algorithms, data structures, and software development, especially in C and C++. Beyond coding, I enjoy mentoring, cycling, and taking on new challenges.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill">
+                    <h3><i class="fas fa-code skill-icon"></i> Programming Languages</h3>
+                    <ul>
+                        <li>C/C++ (Advanced)</li>
+                        <li>Java (Intermediate)</li>
+                        <li>JavaScript, C# (Basic)</li>
+                        <li>Assembly 8086</li>
+                    </ul>
+                </div>
+                <div class="skill">
+                    <h3><i class="fas fa-trophy skill-icon"></i> Competetive Programming</h3>
+                    <ul>
+                        <li>Data Structures & Algorithms</li>
+                        <li>1500+ Problem Solving</li>
+                        <li>Specialist in Codeforces</li>
+                        <li>Top 30 in IUPC</li>
+                    </ul>
+                </div>
+                <div class="skill">
+                    <h3><i class="fas fa-tools skill-icon"></i> Tools & Technologies</h3>
+                    <ul>
+                        <li>Git & GitHub</li>
+                        <li>MS Visual Studio</li>
+                        <li>Android Studio</li>
+                        <li>Arduino</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <h3>Bachelor of Science in CSE</h3>
+                    <p>Khulna University of Engineering & Technology (KUET)</p>
+                    <p>2023 - Present</p>
+                </div>
+                <div class="education-item">
+                    <h3>Higher Secondary Certificate in Science Group</h3>
+                    <p>Govt. M. M. City College, Khulna</p>
+                    <p>2019 - 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-list">
+                <div class="project">
+                    <h3><i class="fas fa-shopping-cart skill-icon"></i> Campus Bazar</h3>
+                    <p>An online marketplace platform built using MERN stack, specifically designed for university students to buy and sell products within their campus community.</p>
+                    <a href="https://github.com/KaziRifatAlMuin/Campus-Bazar_Ecommerce-App-Project" target="_blank" class="view-on-github">View on GitHub</a>
+                </div>
+                <div class="project">
+                    <h3><i class="fas fa-calculator skill-icon"></i> Numerical Methods</h3>
+                    <p>A comprehensive collection of numerical methods implementations in C++, including root finding, interpolation, and differential equations solving techniques.</p>
+                    <a href="https://github.com/KaziRifatAlMuin/Numerical-Methods-Console-Application" target="_blank" class="view-on-github">View on GitHub</a>
+                </div>
+                <div class="project">
+                    <h3><i class="fas fa-code skill-icon"></i> Code Drive</h3>
+                    <p>A collection of solved competitive programming problems from various online judges like CodeForces, AtCoder, and SPOJ, implemented in C++.</p>
+                    <a href="https://github.com/KaziRifatAlMuin/CodeDrive" target="_blank" class="view-on-github">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <form id="contact-form" onsubmit="return submitForm();">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="connect">
+        <div class="container">
+            <h2>Connect With Me</h2>
+            <div class="social-links">
+                <a href="https://facebook.com/rifatalmuin21" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://instagram.com/rifat.al_muin" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com/in/rifatalmuin" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/RifatAlMuin" target="_blank" class="social-icon twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://codeforces.com/profile/RifatALmuiN" target="_blank" class="social-icon codeforces">
+                </a>
+                <a href="https://www.codechef.com/users/rifat_246" target="_blank" class="social-icon codechef">
+                </a>
+                <a href="https://github.com/KaziRifatAlMuin" target="_blank" class="social-icon github">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - Kazi Rifat Al Muin. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
