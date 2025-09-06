@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "E:\\Portfolio\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio\\portfolio\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio\\portfolio\\home.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\home.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio\\portfolio\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,23 +22,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Home.aspx.cs",
+              "DocumentMoniker": "E:\\Portfolio\\Portfolio\\Home.aspx.cs",
+              "RelativeDocumentMoniker": "Portfolio\\Home.aspx.cs",
+              "ToolTip": "E:\\Portfolio\\Portfolio\\Home.aspx.cs",
+              "RelativeToolTip": "Portfolio\\Home.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T08:55:34.167Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Global.asax.cs",
-              "DocumentMoniker": "E:\\Portfolio\\Portfolio\\Global.asax.cs",
-              "RelativeDocumentMoniker": "Portfolio\\Global.asax.cs",
-              "ToolTip": "E:\\Portfolio\\Portfolio\\Global.asax.cs",
-              "RelativeToolTip": "Portfolio\\Global.asax.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T07:48:57.174Z",
+              "Title": "Home.aspx",
+              "DocumentMoniker": "E:\\Portfolio\\Portfolio\\Home.aspx",
+              "RelativeDocumentMoniker": "Portfolio\\Home.aspx",
+              "ToolTip": "E:\\Portfolio\\Portfolio\\Home.aspx",
+              "RelativeToolTip": "Portfolio\\Home.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-09-06T08:54:36.035Z",
               "EditorCaption": ""
             },
             {
@@ -47,7 +72,24 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "E:\\Portfolio\\Portfolio\\Global.asax.cs",
+              "RelativeDocumentMoniker": "Portfolio\\Global.asax.cs",
+              "ToolTip": "E:\\Portfolio\\Portfolio\\Global.asax.cs",
+              "RelativeToolTip": "Portfolio\\Global.asax.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T07:48:57.174Z",
+              "EditorCaption": ""
             }
           ]
         }
