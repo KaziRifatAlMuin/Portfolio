@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Portfolio.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kazi Rifat Al Muin - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="brand-text">Rifat</span>
+            </div>
+            <div class="nav-links">
+                <a href="Home.aspx">Home</a>
+                <a href="About.aspx">About</a>
+                <a href="Skills.aspx">Skills</a>
+                <a href="Projects.aspx">Projects</a>
+                <a href="Education.aspx">Education</a>
+                <a href="Contact.aspx">Contact</a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Kazi Rifat Al Muin. All Rights Reserved.</p>
+        </footer>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
