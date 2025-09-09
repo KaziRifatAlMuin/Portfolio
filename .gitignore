@@ -36,3 +36,10 @@ App_Data/*.bak
 *.user
 bin/
 obj/
+
+# Visual Studio cache/build
+.vs/
+bin/
+obj/
+*.user
+*.suo
