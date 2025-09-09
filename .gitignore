@@ -29,3 +29,10 @@ App_Data/*.bak
 *.tmp
 *.temp
 ~$*
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+bin/
+obj/
