@@ -1,10 +1,14 @@
 ﻿<%@ Page Title="Education" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Education.aspx.cs" Inherits="Portfolio.Education" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="styles/education.css" />
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <section class="page-section">
         <div class="section-header">
             <h1>Education</h1>
-            <p>My academic journey and achievements</p>
+            <p>My academic journey and learning path</p>
         </div>
 
         <div class="education-timeline">
@@ -19,7 +23,8 @@
                     <p>Currently pursuing CSE degree with focus on algorithms, data structures, and software development. Active in competitive programming and various tech communities.</p>
                     <div class="achievements">
                         <span class="achievement">Competetive Programming</span>
-                        <span class="achievement">AGS of SGIPC, Our Programming Club</span>
+                        <span class="achievement">IUPC</span>
+                        <span class="achievement">ICPC Regional</span>
                     </div>
                 </div>
             </div>
@@ -36,26 +41,27 @@
                     <div class="achievements">
                         <span class="achievement">Science Group</span>
                         <span class="achievement">GPA 5.00</span>
+                        <span class="achievement">Board Scholarship</span>
                     </div>
                 </div>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-marker">
-                    <i class="fas fa-award"></i>
+                    <i class="fas fa-book"></i>
                 </div>
                 <div class="timeline-content">
-                    <div class="timeline-period">Achievements</div>
-                    <h3>Competitive Programming Achievements</h3>
-                    <ul class="achievement-list">
-                        <li>Specialist rating on Codeforces</li>
-                        <li>26th in AUST Inter University Programming Contest 2025</li>
-                        <li>29th in BUET Inter University Programming Contest 2024</li>
-                        <li>39th in ICPC Dhaka Regional 2024</li>
-                        <li>1500+ problems solved across various platforms</li>
-                    </ul>
+                    <div class="timeline-period">2017 - 2019</div>
+                    <h3>Secondary School Certificate (SSC)</h3>
+                    <h4>Saint Joseph's High School, Khulna</h4>
+                    <p>Completed secondary education with strong foundation in science and mathematics.</p>
+                    <div class="achievements">
+                        <span class="achievement">Science Group</span>
+                        <span class="achievement">GPA 5.00</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <script src="scripts/education.js"></script>
 </asp:Content>

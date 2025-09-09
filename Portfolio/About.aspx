@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="Portfolio.About" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="styles/about.css" />
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <section class="page-section">
         <div class="section-header">
@@ -42,6 +46,122 @@
             </div>
         </div>
 
+        <!-- Achievements Section -->
+        <div class="achievements-section">
+            <div class="achievements-header">
+                <h2>My Achievements</h2>
+                <p>Milestones in my competitive programming and academic journey</p>
+            </div>
+            
+            <div class="achievements-container">
+                <!-- Programming Achievements -->
+                <div class="achievement-category">
+                    <div class="category-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Competitive Programming</h3>
+                    <div class="achievement-items">
+                        <div class="achievement-item">
+                            <div class="achievement-badge">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>Specialist Rating</h4>
+                                <p>Achieved Specialist rating on Codeforces platform</p>
+                                <span class="achievement-platform">Codeforces</span>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-item">
+                            <div class="achievement-badge">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>26th Position</h4>
+                                <p>AUST Inter University Programming Contest 2025</p>
+                                <span class="achievement-platform">IUPC 2025</span>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-item">
+                            <div class="achievement-badge">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>29th Position</h4>
+                                <p>BUET Inter University Programming Contest 2024</p>
+                                <span class="achievement-platform">IUPC 2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-item">
+                            <div class="achievement-badge">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>39th Position</h4>
+                                <p>ICPC Dhaka Regional Contest 2024</p>
+                                <span class="achievement-platform">ICPC Regional</span>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-item">
+                            <div class="achievement-badge">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>1500+ Problems Solved</h4>
+                                <p>Across various online programming platforms</p>
+                                <span class="achievement-platform">Multiple Platforms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Academic & Leadership Achievements -->
+                <div class="achievement-category">
+                    <div class="category-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academic & Leadership</h3>
+                    <div class="achievement-items">
+                        <div class="achievement-item">
+                            <div class="achievement-badge">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>AGS of SGIPC</h4>
+                                <p>Assistant General Secretary of our Programming Club</p>
+                                <span class="achievement-platform">KUET</span>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-item">
+                            <div class="achievement-badge">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>GPA 5.00</h4>
+                                <p>Higher Secondary Certificate with Board Scholarship</p>
+                                <span class="achievement-platform">HSC 2021</span>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-item">
+                            <div class="achievement-badge">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>CSE Student</h4>
+                                <p>Currently pursuing Bachelor's in Computer Science</p>
+                                <span class="achievement-platform">KUET</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Photo Gallery with Fixed 3-Photo Layout -->
         <div class="photo-gallery">
             <div class="gallery-header">
@@ -80,4 +200,6 @@
             </div>
         </div>
     </section>
+
+    <script src="scripts/about.js"></script>
 </asp:Content>

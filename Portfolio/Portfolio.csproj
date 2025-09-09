@@ -73,9 +73,18 @@
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Projects.aspx" />
-    <Content Include="script.js" />
+    <Content Include="scripts\about.js" />
+    <Content Include="scripts\home.js" />
+    <Content Include="scripts\main.js" />
+    <Content Include="scripts\skills.js" />
     <Content Include="Skills.aspx" />
-    <Content Include="styles.css" />
+    <Content Include="styles\about.css" />
+    <Content Include="styles\contact.css" />
+    <Content Include="styles\education.css" />
+    <Content Include="styles\home.css" />
+    <Content Include="styles\projects.css" />
+    <Content Include="styles\site.css" />
+    <Content Include="styles\skills.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Portfolio.Home" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="styles/home.css" />
+</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Hero Section -->
     <section class="hero">
@@ -15,7 +19,7 @@
                     data structures, and problem-solving with 1500+ problems solved.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">Learn More</a>
+                    <a href="About.aspx" class="btn btn-primary">Know More</a>
                     <a href="Contact.aspx" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
@@ -27,40 +31,48 @@
         </div>
     </section>
 
-    <!-- Quick Overview Sections -->
+    <!-- Quick Overview Sections - Now Clickable -->
     <section id="about" class="overview">
         <div class="overview-grid">
-            <div class="overview-card">
-                <div class="card-icon">
-                    <i class="fas fa-user"></i>
+            <a href="About.aspx" class="overview-card-link">
+                <div class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>About Me</h3>
+                    <p>CSE undergraduate at KUET with passion for competitive programming and software development.</p>
                 </div>
-                <h3>About Me</h3>
-                <p>CSE undergraduate at KUET with passion for competitive programming and software development.</p>
-            </div>
+            </a>
             
-            <div class="overview-card">
-                <div class="card-icon">
-                    <i class="fas fa-code"></i>
+            <a href="Skills.aspx" class="overview-card-link">
+                <div class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Skills</h3>
+                    <p>Expert in C/C++, Java, JavaScript. Strong foundation in algorithms and data structures.</p>
                 </div>
-                <h3>Skills</h3>
-                <p>Expert in C/C++, Java, JavaScript. Strong foundation in algorithms and data structures.</p>
-            </div>
+            </a>
             
-            <div class="overview-card">
-                <div class="card-icon">
-                    <i class="fas fa-project-diagram"></i>
+            <a href="Projects.aspx" class="overview-card-link">
+                <div class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Projects</h3>
+                    <p>Campus Bazar, Numerical Methods, Code Drive and various competitive programming solutions.</p>
                 </div>
-                <h3>Projects</h3>
-                <p>Campus Bazar, Numerical Methods, Code Drive and various competitive programming solutions.</p>
-            </div>
+            </a>
             
-            <div class="overview-card">
-                <div class="card-icon">
-                    <i class="fas fa-graduation-cap"></i>
+            <a href="Education.aspx" class="overview-card-link">
+                <div class="overview-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education</h3>
+                    <p>Currently pursuing Bachelor's in CSE at KUET. HSC from Govt. M.M. City College.</p>
                 </div>
-                <h3>Education</h3>
-                <p>Currently pursuing Bachelor's in CSE at KUET. HSC from Govt. M.M. City College.</p>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -96,4 +108,6 @@
             <a href="https://facebook.com/rifatalmuin21" class="social-link"><i class="fab fa-facebook"></i></a>
         </div>
     </section>
+
+    <script src="scripts/home.js"></script>
 </asp:Content>

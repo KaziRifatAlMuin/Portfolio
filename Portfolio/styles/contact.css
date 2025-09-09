@@ -1,0 +1,496 @@
+﻿/* ===== CONTACT PAGE RESPONSIVE STYLING ===== */
+/* This file contains styles for the contact page including contact info and form */
+
+/* ===== CONTACT CONTENT LAYOUT ===== */
+/* Two-column grid layout for desktop - contact info on left, form on right */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns for desktop */
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ===== CONTACT INFORMATION SECTION ===== */
+/* Contact information container styling */
+.contact-info {
+    color: #e1e5f2;
+}
+
+    /* Contact info section title */
+    .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        color: #ffffff;
+        background: linear-gradient(45deg, #ffffff, #00ffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+/* Individual contact item container with hover effects */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(16, 7, 43, 0.6), rgba(14, 15, 43, 0.8));
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+    /* Subtle background glow for contact items */
+    .contact-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.05), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .contact-item:hover::before {
+        opacity: 1;
+    }
+
+    /* Contact item hover effects */
+    .contact-item:hover {
+        transform: translateX(10px);
+        border-color: rgba(0, 255, 255, 0.3);
+        background: linear-gradient(135deg, rgba(16, 7, 43, 0.8), rgba(14, 15, 43, 1));
+        box-shadow: 0 8px 25px rgba(0, 255, 255, 0.1);
+    }
+
+/* Contact icon styling with circular background */
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(64, 224, 208, 0.3));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #00ffff;
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+/* Contact icon animation on hover */
+.contact-item:hover .contact-icon {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+/* Contact details container */
+.contact-details {
+    flex-grow: 1;
+}
+
+    .contact-details h4 {
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .contact-details p {
+        color: #b8c5d6;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    /* Contact details link styling */
+    .contact-details a {
+        color: #00ffff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+        .contact-details a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+/* ===== CONTACT FORM SECTION ===== */
+/* Contact form container with glass morphism effect */
+.contact-form {
+    background: linear-gradient(135deg, rgba(16, 7, 43, 0.6), rgba(14, 15, 43, 0.8));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+    /* Form background overlay effect */
+    .contact-form::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.02), rgba(64, 224, 208, 0.05));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .contact-form:hover::before {
+        opacity: 1;
+    }
+
+    /* Form title styling */
+    .contact-form h3 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        color: #ffffff;
+        background: linear-gradient(45deg, #ffffff, #00ffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+    }
+
+/* Form group container for proper spacing */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Form label styling */
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #e1e5f2;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Form input field styling with glass effect */
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #e1e5f2;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+    /* Form input focus effects */
+    .form-input:focus, .form-textarea:focus {
+        outline: none;
+        border-color: rgba(0, 255, 255, 0.5);
+        background: rgba(0, 255, 255, 0.1);
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    /* Placeholder text styling */
+    .form-input::placeholder, .form-textarea::placeholder {
+        color: rgba(184, 197, 214, 0.7);
+    }
+
+/* Textarea specific styling */
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Submit button styling */
+.form-submit {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(64, 224, 208, 0.3));
+    color: #ffffff;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+    /* Submit button shimmer effect */
+    .form-submit::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: all 0.5s ease;
+    }
+
+    .form-submit:hover::before {
+        left: 100%;
+    }
+
+    /* Submit button hover effects */
+    .form-submit:hover {
+        background: linear-gradient(45deg, rgba(0, 255, 255, 0.4), rgba(64, 224, 208, 0.5));
+        border-color: rgba(0, 255, 255, 0.5);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 255, 255, 0.2);
+    }
+
+/* Form message styling for success/error feedback */
+.form-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+    /* Success message styling */
+    .form-message.success {
+        background: linear-gradient(135deg, rgba(0, 255, 150, 0.1), rgba(50, 205, 50, 0.15));
+        border: 1px solid rgba(0, 255, 150, 0.3);
+        color: #00ff96;
+    }
+
+    /* Error message styling */
+    .form-message.error {
+        background: linear-gradient(135deg, rgba(255, 100, 100, 0.1), rgba(255, 50, 50, 0.15));
+        border: 1px solid rgba(255, 100, 100, 0.3);
+        color: #ff6464;
+    }
+
+/* ===== SOCIAL SECTION FOR CONTACT PAGE ===== */
+/* Social media links specific to contact page */
+.contact-social {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(16, 7, 43, 0.4), rgba(14, 15, 43, 0.6));
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+    .contact-social h4 {
+        color: #ffffff;
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+/* Social links container for contact page */
+.contact-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Individual social link styling */
+.contact-social-link {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(64, 224, 208, 0.2));
+    color: #00ffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+    .contact-social-link:hover {
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(64, 224, 208, 0.3));
+        color: #ffffff;
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+    }
+
+/* ===== RESPONSIVE DESIGN FOR CONTACT PAGE ===== */
+
+/* 1. Large Desktop (22+ inch displays, 1920px+) */
+@media (min-width: 1920px) {
+    /* Enhanced spacing for large displays */
+    .contact-content {
+        max-width: 1600px;
+        gap: 4rem;
+        padding: 0 2.5rem;
+    }
+
+    .contact-form {
+        padding: 3rem;
+    }
+
+    .contact-item {
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .contact-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.6rem;
+    }
+}
+
+/* 2. Medium Desktop (13+ inch displays, 1024px-1919px) */
+@media (max-width: 1919px) and (min-width: 1024px) {
+    /* Standard desktop maintains 2-column layout */
+    .contact-content {
+        grid-template-columns: 1fr 1fr; /* 2 columns for desktop */
+        gap: 2.5rem;
+        max-width: 1200px;
+    }
+
+    .contact-form {
+        padding: 2rem;
+    }
+
+    .contact-item {
+        padding: 1.2rem;
+    }
+}
+
+/* 3. Tablet/iPad (768px-1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    /* Single column layout for tablet */
+    .contact-content {
+        grid-template-columns: 1fr; /* 1 column for tablet */
+        gap: 2rem;
+        max-width: 700px;
+        padding: 0 1rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+        .contact-form h3 {
+            font-size: 1.6rem;
+        }
+
+    .contact-item {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .contact-details h4 {
+        font-size: 1rem;
+    }
+
+    .contact-details p {
+        font-size: 0.85rem;
+    }
+
+    .form-input, .form-textarea {
+        padding: 0.8rem;
+    }
+
+    .form-submit {
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* 4. Phone (up to 767px) */
+@media (max-width: 767px) {
+    /* Single column layout for phone */
+    .contact-content {
+        grid-template-columns: 1fr; /* 1 column for phone */
+        gap: 1.5rem;
+        max-width: 400px;
+        padding: 0 0.5rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 1.2rem;
+    }
+
+        .contact-form h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+    .contact-item {
+        padding: 0.8rem;
+        gap: 0.8rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    .contact-details h4 {
+        font-size: 0.9rem;
+    }
+
+    .contact-details p {
+        font-size: 0.8rem;
+    }
+
+    .form-label {
+        font-size: 0.8rem;
+    }
+
+    .form-input, .form-textarea {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .form-textarea {
+        min-height: 100px;
+    }
+
+    .form-submit {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-social {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+
+        .contact-social h4 {
+            font-size: 1.1rem;
+        }
+
+    .contact-social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}

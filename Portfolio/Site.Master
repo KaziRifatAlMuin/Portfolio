@@ -7,26 +7,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kazi Rifat Al Muin - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/site.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar">
-            <div class="nav-brand">
-                <span class="brand-text">Rifat</span>
-            </div>
-            <div class="nav-links">
-                <a href="Home.aspx">Home</a>
-                <a href="About.aspx">About</a>
-                <a href="Skills.aspx">Skills</a>
-                <a href="Projects.aspx">Projects</a>
-                <a href="Education.aspx">Education</a>
-                <a href="Contact.aspx">Contact</a>
+        <!-- Top Navigation Bar for Desktop -->
+        <nav class="top-navbar">
+            <div class="navbar-container">
+                <div class="nav-brand">
+                    <span class="brand-text">Kazi Rifat Al Muin</span>
+                </div>
+                <div class="nav-links">
+                    <a href="Home.aspx">Home</a>
+                    <a href="About.aspx">About</a>
+                    <a href="Skills.aspx">Skills</a>
+                    <a href="Projects.aspx">Projects</a>
+                    <a href="Education.aspx">Education</a>
+                    <a href="Contact.aspx">Contact</a>
+                </div>
             </div>
         </nav>
 
+        <!-- Hamburger Menu Button -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <!-- Side Navigation Panel -->
+        <nav class="side-nav" id="sideNav">
+            <div class="nav-header">
+                <div class="nav-brand">
+                    <span class="brand-text">Kazi Rifat Al Muin</span>
+                </div>
+                <button class="close-btn" id="closeBtn" aria-label="Close Navigation">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="Home.aspx"><i class="fas fa-home"></i><span>Home</span></a></li>
+                <li><a href="About.aspx"><i class="fas fa-user"></i><span>About</span></a></li>
+                <li><a href="Skills.aspx"><i class="fas fa-code"></i><span>Skills</span></a></li>
+                <li><a href="Projects.aspx"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
+                <li><a href="Education.aspx"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
+                <li><a href="Contact.aspx"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+            </ul>
+            <div class="nav-social">
+                <a href="https://github.com/KaziRifatAlMuin" class="nav-social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/rifatalmuin" class="nav-social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://codeforces.com/profile/RifatALmuiN" class="nav-social-link" target="_blank">
+                    <i class="fas fa-code"></i>
+                </a>
+                <a href="https://facebook.com/rifatalmuin21" class="nav-social-link" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Overlay for mobile navigation -->
+        <div class="nav-overlay" id="navOverlay"></div>
+
+        <!-- Main Content -->
         <main class="main-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
         </main>
@@ -35,6 +83,6 @@
             <p>&copy; 2025 Kazi Rifat Al Muin. All Rights Reserved.</p>
         </footer>
     </form>
-    <script src="script.js"></script>
+    <script src="scripts/main.js"></script>
 </body>
 </html>

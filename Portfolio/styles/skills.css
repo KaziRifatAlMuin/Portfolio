@@ -1,0 +1,814 @@
+﻿/* ===== SKILLS PAGE RESPONSIVE STYLING ===== */
+/* This file contains styles for the skills page including skill categories, competitive programming stats, and contest achievements */
+
+/* ===== SKILLS GRID LAYOUT ===== */
+/* Main grid container for skill categories - 3 cards per row on desktop */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row for desktop */
+    gap: 2rem;
+    margin-bottom: 4rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
+}
+
+/* ===== INDIVIDUAL SKILL CATEGORIES ===== */
+/* Skill category container with rotating border effect and glass morphism */
+.skill-category {
+    background: linear-gradient(135deg, rgba(16, 7, 43, 0.6), rgba(14, 15, 43, 0.8));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    color: #e1e5f2;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 350px;
+}
+
+    /* Rotating conic gradient border effect for skill categories */
+    .skill-category::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(from 0deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+        opacity: 0;
+        transition: all 0.6s ease;
+        animation: skillRotate 8s linear infinite;
+    }
+
+    .skill-category:hover::before {
+        opacity: 1;
+    }
+
+    /* Skill category hover transformation effects */
+    .skill-category:hover {
+        transform: translateY(-10px) scale(1.02);
+        border-color: rgba(0, 255, 255, 0.3);
+        box-shadow: 0 20px 50px rgba(0, 255, 255, 0.15);
+        background: linear-gradient(135deg, rgba(16, 7, 43, 0.8), rgba(14, 15, 43, 1));
+    }
+
+/* Rotation animation keyframe for border effect */
+@keyframes skillRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== SKILL CATEGORY CONTENT ===== */
+/* Category header containing icon and title */
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+    /* Category icon with glowing effect */
+    .category-header i {
+        font-size: 2rem;
+        color: #00ffff;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        transition: all 0.4s ease;
+    }
+
+/* Icon animation on category hover */
+.skill-category:hover .category-header i {
+    transform: scale(1.2) rotate(10deg);
+    text-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+}
+
+/* Category title styling */
+.category-header h3 {
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+    font-size: 1.4rem;
+}
+
+/* Skill list container */
+.skill-list {
+    position: relative;
+    z-index: 1;
+}
+
+/* Individual skill item container */
+.skill-item {
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+/* Skill item slide animation on category hover */
+.skill-category:hover .skill-item {
+    transform: translateX(5px);
+}
+
+/* Skill name label styling */
+.skill-name {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #e1e5f2;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+/* Skill name color change on hover */
+.skill-category:hover .skill-name {
+    color: #00ffff;
+}
+
+/* Skill progress bar background container */
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animated skill progress indicator with gradient */
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #00ffff, #40e0d0, #20b2aa);
+    border-radius: 5px;
+    width: 0%;
+    transition: width 2s ease;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+    /* Shimmer effect overlay for skill progress bars */
+    .skill-progress::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        animation: skillShimmer 2s infinite;
+    }
+
+/* Shimmer animation keyframes */
+@keyframes skillShimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ===== COMPETITIVE PROGRAMMING SECTION ===== */
+/* Main container for CP achievements */
+.cp-section {
+    margin: 4rem 0;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
+}
+
+/* CP section header styling */
+.cp-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+    .cp-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+        background: linear-gradient(45deg, #ffffff, #00ffff, #40e0d0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        position: relative;
+    }
+
+        /* Decorative underline for CP header */
+        .cp-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff, #40e0d0);
+            border-radius: 2px;
+        }
+
+    .cp-header p {
+        color: #b8c5d6;
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+/* Grid layout for online judge cards - 3 cards per row */
+.judge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row for desktop */
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Individual online judge card styling */
+.judge-card {
+    background: linear-gradient(135deg, rgba(16, 7, 43, 0.8), rgba(14, 15, 43, 0.9));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    /* Judge card background glow effect */
+    .judge-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(64, 224, 208, 0.08));
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .judge-card:hover::before {
+        opacity: 1;
+    }
+
+    /* Judge card hover transformation */
+    .judge-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: rgba(0, 255, 255, 0.3);
+        box-shadow: 0 15px 40px rgba(0, 255, 255, 0.15);
+    }
+
+/* Judge card header with logo and name */
+.judge-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Judge platform logo styling */
+.judge-logo {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(64, 224, 208, 0.3));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+}
+
+    .judge-logo i {
+        font-size: 1.5rem;
+        color: #00ffff;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+
+/* Judge logo animation on card hover */
+.judge-card:hover .judge-logo {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+/* Judge platform name styling */
+.judge-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    flex-grow: 1;
+}
+
+    /* Animated underline for judge name */
+    .judge-name::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #00ffff, #40e0d0);
+        transition: width 0.3s ease;
+    }
+
+    .judge-name:hover::after {
+        width: 100%;
+    }
+
+    .judge-name:hover {
+        color: #00ffff;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+/* Judge statistics container */
+.judge-stats {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Problem count display with large emphasis */
+.problem-count {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #00ffff;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+/* Problem count animation on card hover */
+.judge-card:hover .problem-count {
+    transform: scale(1.1);
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+}
+
+/* Problem count label */
+.problem-label {
+    font-size: 0.95rem;
+    color: #b8c5d6;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+/* Judge rating badge styling */
+.judge-rating {
+    display: inline-block;
+    background: rgba(0, 255, 255, 0.1);
+    color: #00ffff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Rating badge hover effect */
+.judge-card:hover .judge-rating {
+    background: rgba(0, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* ===== CONTEST SECTIONS ===== */
+/* Container for contest achievement tables */
+.contest-section {
+    margin: 4rem 0;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
+}
+
+/* Contest section header */
+.contest-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+    .contest-header h2 {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+        background: linear-gradient(45deg, #ffffff, #00ffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        position: relative;
+    }
+
+        /* Decorative underline for contest header */
+        .contest-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, #00ffff, #40e0d0);
+            border-radius: 1px;
+        }
+
+    .contest-header p {
+        color: #b8c5d6;
+        font-size: 1rem;
+    }
+
+/* Contest table container with glass effect */
+.contest-table-container {
+    background: linear-gradient(135deg, rgba(16, 7, 43, 0.8), rgba(14, 15, 43, 0.9));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 2rem;
+    overflow-x: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+    .contest-table-container:hover {
+        border-color: rgba(0, 255, 255, 0.25);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+/* Contest table styling */
+.contest-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #e1e5f2;
+    min-width: 700px;
+}
+
+    /* Table header styling */
+    .contest-table thead th {
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(64, 224, 208, 0.15));
+        color: #00ffff;
+        padding: 1.2rem;
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+        position: relative;
+        white-space: nowrap;
+    }
+
+        /* Gradient underline for table headers */
+        .contest-table thead th::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #00ffff, #40e0d0);
+        }
+
+    /* Table row styling */
+    .contest-table tbody tr {
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    }
+
+        .contest-table tbody tr:hover {
+            background: rgba(0, 255, 255, 0.05);
+            transform: scale(1.01);
+        }
+
+    /* Table cell styling */
+    .contest-table td {
+        padding: 1.2rem;
+        vertical-align: middle;
+    }
+
+/* Contest link styling */
+.contest-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+    /* Animated underline for contest links */
+    .contest-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #00ffff, #40e0d0);
+        transition: width 0.3s ease;
+    }
+
+    .contest-link:hover::after {
+        width: 100%;
+    }
+
+    .contest-link:hover {
+        color: #00ffff;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+/* Rank cell center alignment */
+.rank-cell {
+    text-align: center;
+}
+
+/* Base rank badge styling */
+.rank-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Excellent rank styling (gold theme) */
+.rank-excellent {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 0, 0.3));
+    color: #ffd700;
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+/* Good rank styling (silver theme) */
+.rank-good {
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(169, 169, 169, 0.3));
+    color: #c0c0c0;
+    border-color: rgba(192, 192, 192, 0.4);
+}
+
+/* Rank badge hover effect */
+.rank-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+/* Status badge base styling */
+.status-badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Winner status styling (green theme) */
+.status-winner {
+    background: linear-gradient(135deg, rgba(0, 255, 0, 0.2), rgba(50, 205, 50, 0.3));
+    color: #00ff00;
+    border-color: rgba(0, 255, 0, 0.4);
+}
+
+/* Qualified status styling (cyan theme) */
+.status-qualified {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(64, 224, 208, 0.3));
+    color: #00ffff;
+    border-color: rgba(0, 255, 255, 0.4);
+}
+
+/* Participated status styling (gray theme) */
+.status-participated {
+    background: linear-gradient(135deg, rgba(128, 128, 128, 0.2), rgba(169, 169, 169, 0.3));
+    color: #a9a9a9;
+    border-color: rgba(128, 128, 128, 0.4);
+}
+
+/* Status badge hover effect */
+.status-badge:hover {
+    transform: scale(1.05);
+}
+
+/* Count-up animation for problem counts */
+@keyframes skillCountUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.problem-count.counting {
+    animation: skillCountUp 0.8s ease-out;
+}
+
+/* ===== RESPONSIVE DESIGN FOR SKILLS PAGE ===== */
+
+/* 1. Large Desktop (22+ inch displays, 1920px+) */
+@media (min-width: 1920px) {
+    .skills-grid,
+    .cp-section,
+    .contest-section {
+        max-width: 1600px;
+        padding: 0 2.5rem;
+    }
+
+    .skills-grid,
+    .judge-grid {
+        grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns */
+    }
+
+    .skill-category {
+        min-height: 380px;
+        padding: 3rem;
+    }
+
+    .judge-card {
+        min-height: 250px;
+        padding: 2.5rem;
+    }
+}
+
+/* 2. Medium Desktop (13+ inch displays, 1024px-1919px) */
+@media (max-width: 1919px) and (min-width: 1024px) {
+    .skills-grid,
+    .judge-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards per row for desktop */
+        gap: 1.5rem;
+        max-width: 1200px;
+    }
+
+    .skill-category {
+        min-height: 320px;
+        padding: 2rem;
+    }
+
+    .judge-card {
+        padding: 1.8rem;
+        min-height: 200px;
+    }
+
+    .contest-table-container {
+        padding: 1.5rem;
+    }
+}
+
+/* 3. Tablet/iPad (768px-1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .skills-grid,
+    .judge-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row for tablet */
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .skill-category {
+        min-height: 280px;
+        padding: 1.5rem;
+    }
+
+    .category-header i {
+        font-size: 1.8rem;
+    }
+
+    .judge-card {
+        padding: 1.5rem;
+        min-height: 180px;
+    }
+
+    .problem-count {
+        font-size: 2.4rem;
+    }
+
+    .cp-header h2,
+    .contest-header h2 {
+        font-size: 2rem;
+    }
+
+    .contest-table-container {
+        padding: 1rem;
+        border-radius: 15px;
+    }
+
+    .contest-table {
+        font-size: 0.9rem;
+        min-width: 600px;
+    }
+
+        .contest-table th,
+        .contest-table td {
+            padding: 1rem;
+        }
+}
+
+/* 4. Phone (up to 767px) */
+@media (max-width: 767px) {
+    .skills-grid,
+    .judge-grid {
+        grid-template-columns: 1fr; /* 1 card per row for phone */
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .skill-category {
+        min-height: 250px;
+        padding: 1.2rem;
+    }
+
+    .category-header {
+        margin-bottom: 1.5rem;
+    }
+
+        .category-header i {
+            font-size: 1.6rem;
+        }
+
+        .category-header h3 {
+            font-size: 1.2rem;
+        }
+
+    .skill-name {
+        font-size: 0.9rem;
+    }
+
+    .skill-bar {
+        height: 8px;
+    }
+
+    .judge-card {
+        padding: 1.2rem;
+        min-height: 160px;
+    }
+
+    .judge-header {
+        margin-bottom: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+
+    .judge-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+        .judge-logo i {
+            font-size: 1.3rem;
+        }
+
+    .judge-name {
+        font-size: 1.2rem;
+    }
+
+    .problem-count {
+        font-size: 2.2rem;
+    }
+
+    .cp-header h2,
+    .contest-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .contest-table-container {
+        padding: 0.8rem;
+        overflow-x: scroll;
+    }
+
+    .contest-table {
+        font-size: 0.8rem;
+        min-width: 600px;
+    }
+
+        .contest-table th,
+        .contest-table td {
+            padding: 0.8rem;
+        }
+
+    .rank-badge,
+    .status-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
