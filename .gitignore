@@ -29,3 +29,10 @@ App_Data/*.bak
 *.tmp
 *.temp
 ~$*
+
+# Visual Studio/ASP.NET
+.vs/
+bin/
+obj/
+*.user
+*.suo
