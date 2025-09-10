@@ -3,68 +3,48 @@
   "WorkspaceRootPath": "E:\\Portfolio-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\admin\\onlinejudgemanagement.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\onlinejudgemanagement.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\admin\\onlinejudgemanagement.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\onlinejudgemanagement.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\admin\\onlinejudgemanagement.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\onlinejudgemanagement.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\admin\\viewjudges.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\viewjudges.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\admin\\viewjudges.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\viewjudges.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\admin\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\dal\\onlinejudgedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\dal\\onlinejudgedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\admin\\login.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\login.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\admin\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\admin\\dashboard.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\dashboard.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\skills.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\skills.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\skills.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\skills.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\projects.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\projects.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\projects.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\projects.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\styles\\skills.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\styles\\skills.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Home.aspx",
               "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Home.aspx",
               "RelativeDocumentMoniker": "Portfolio\\Home.aspx",
@@ -92,29 +72,131 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Web.config",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Web.config",
-              "RelativeDocumentMoniker": "Portfolio\\Web.config",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Web.config",
-              "RelativeToolTip": "Portfolio\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-09-10T06:04:10.728Z",
-              "IsPinned": true,
+              "DocumentIndex": 1,
+              "Title": "Dashboard.aspx.designer.cs",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx.designer.cs",
+              "RelativeDocumentMoniker": "Portfolio\\Admin\\Dashboard.aspx.designer.cs",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx.designer.cs",
+              "RelativeToolTip": "Portfolio\\Admin\\Dashboard.aspx.designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T17:23:56.601Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "OnlineJudgeManagement.aspx.designer.cs",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\OnlineJudgeManagement.aspx.designer.cs",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\OnlineJudgeManagement.aspx.designer.cs",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\OnlineJudgeManagement.aspx.designer.cs",
-              "RelativeToolTip": "Portfolio\\Admin\\OnlineJudgeManagement.aspx.designer.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAuwFMAAAA1AAAAAAAAAA==",
+              "Title": "Skills.aspx",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Skills.aspx",
+              "RelativeDocumentMoniker": "Portfolio\\Skills.aspx",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Skills.aspx",
+              "RelativeToolTip": "Portfolio\\Skills.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-09-10T16:49:29.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dashboard.aspx",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx",
+              "RelativeDocumentMoniker": "Portfolio\\Admin\\Dashboard.aspx",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx",
+              "RelativeToolTip": "Portfolio\\Admin\\Dashboard.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-09-10T15:23:29.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Skills.aspx.cs",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Skills.aspx.cs",
+              "RelativeDocumentMoniker": "Portfolio\\Skills.aspx.cs",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Skills.aspx.cs",
+              "RelativeToolTip": "Portfolio\\Skills.aspx.cs",
+              "ViewState": "AgIAALgBAAAAAAAAAAAswNoBAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T07:34:54.489Z",
+              "WhenOpened": "2025-09-10T16:52:32.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dashboard.aspx.cs",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx.cs",
+              "RelativeDocumentMoniker": "Portfolio\\Admin\\Dashboard.aspx.cs",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx.cs",
+              "RelativeToolTip": "Portfolio\\Admin\\Dashboard.aspx.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAAwLsBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T15:37:10.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Web.config",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Web.config",
+              "RelativeDocumentMoniker": "Portfolio\\Web.config",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Web.config",
+              "RelativeToolTip": "Portfolio\\Web.config",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAjwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-09-10T17:21:33.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Projects.aspx",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Projects.aspx",
+              "RelativeDocumentMoniker": "Portfolio\\Projects.aspx",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Projects.aspx",
+              "RelativeToolTip": "Portfolio\\Projects.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-09-10T17:11:08.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Projects.aspx.cs",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Projects.aspx.cs",
+              "RelativeDocumentMoniker": "Portfolio\\Projects.aspx.cs",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Projects.aspx.cs",
+              "RelativeToolTip": "Portfolio\\Projects.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T17:11:08.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "skills.css",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\styles\\skills.css",
+              "RelativeDocumentMoniker": "Portfolio\\styles\\skills.css",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\styles\\skills.css",
+              "RelativeToolTip": "Portfolio\\styles\\skills.css",
+              "ViewState": "AgIAAPYDAAAAAAAAAAAIwCoEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-09-10T16:58:28.279Z",
               "EditorCaption": ""
             },
             {
@@ -131,171 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Dashboard.aspx.cs",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx.cs",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\Dashboard.aspx.cs",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx.cs",
-              "RelativeToolTip": "Portfolio\\Admin\\Dashboard.aspx.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAuwD0AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T07:03:23.502Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OnlineJudgeManagement.aspx.cs",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\OnlineJudgeManagement.aspx.cs",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\OnlineJudgeManagement.aspx.cs",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\OnlineJudgeManagement.aspx.cs",
-              "RelativeToolTip": "Portfolio\\Admin\\OnlineJudgeManagement.aspx.cs",
-              "ViewState": "AgIAAM4AAAAAAAAAAAAuwAQBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T06:14:38.117Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ViewJudges.aspx.cs",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\ViewJudges.aspx.cs",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\ViewJudges.aspx.cs",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\ViewJudges.aspx.cs",
-              "RelativeToolTip": "Portfolio\\Admin\\ViewJudges.aspx.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAAwHcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T07:17:15.19Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ViewJudges.aspx",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\ViewJudges.aspx",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\ViewJudges.aspx",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\ViewJudges.aspx",
-              "RelativeToolTip": "Portfolio\\Admin\\ViewJudges.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-09-10T05:58:28.316Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OnlineJudgeManagement.aspx",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\OnlineJudgeManagement.aspx",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\OnlineJudgeManagement.aspx",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\OnlineJudgeManagement.aspx",
-              "RelativeToolTip": "Portfolio\\Admin\\OnlineJudgeManagement.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-09-10T07:02:27.775Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Dashboard.aspx",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\Dashboard.aspx",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx",
-              "RelativeToolTip": "Portfolio\\Admin\\Dashboard.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-09-10T07:03:01.126Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Login.aspx",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Login.aspx",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\Login.aspx",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Login.aspx",
-              "RelativeToolTip": "Portfolio\\Admin\\Login.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-09-10T05:57:27.724Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "OnlineJudgeDAL.cs",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\DAL\\OnlineJudgeDAL.cs",
-              "RelativeDocumentMoniker": "Portfolio\\DAL\\OnlineJudgeDAL.cs",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\DAL\\OnlineJudgeDAL.cs",
-              "RelativeToolTip": "Portfolio\\DAL\\OnlineJudgeDAL.cs",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAAwPYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T07:20:07.799Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Login.aspx.cs",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Login.aspx.cs",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\Login.aspx.cs",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Login.aspx.cs",
-              "RelativeToolTip": "Portfolio\\Admin\\Login.aspx.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAuwIwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T06:01:54.594Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Dashboard.aspx.designer.cs",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx.designer.cs",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\Dashboard.aspx.designer.cs",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Dashboard.aspx.designer.cs*",
-              "RelativeToolTip": "Portfolio\\Admin\\Dashboard.aspx.designer.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T07:19:29.105Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "Login.aspx.designer.cs",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Login.aspx.designer.cs",
-              "RelativeDocumentMoniker": "Portfolio\\Admin\\Login.aspx.designer.cs",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Login.aspx.designer.cs*",
-              "RelativeToolTip": "Portfolio\\Admin\\Login.aspx.designer.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAwFAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T06:32:36.414Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Site.Master",
-              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Site.Master",
-              "RelativeDocumentMoniker": "Portfolio\\Site.Master",
-              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Site.Master",
-              "RelativeToolTip": "Portfolio\\Site.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-09-10T06:56:06.393Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "Global.asax.cs",
               "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Global.asax.cs",
               "RelativeDocumentMoniker": "Portfolio\\Global.asax.cs",
@@ -305,10 +223,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-10T06:22:47.17Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             }
           ]
         }

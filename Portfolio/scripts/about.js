@@ -87,13 +87,13 @@ document.addEventListener('DOMContentLoaded', function () {
         updatePhotos();
     }
 
-    // Start automatic photo rotation with faster 800ms interval
+    // Start automatic photo rotation with faster 2 s interval
     function startAutoRotate() {
         if (autoRotateInterval) {
             clearInterval(autoRotateInterval);
         }
-        autoRotateInterval = setInterval(nextPhoto, 800); // Faster 0.8 seconds interval
-        console.log('Photo rotation started with 0.8s interval');
+        autoRotateInterval = setInterval(nextPhoto, 2000); // Faster 2 seconds interval
+        console.log('Photo rotation started with 2s interval');
     }
 
     // Stop automatic photo rotation

@@ -66,7 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Admin\OnlineJudgeManagement.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Education.aspx" />
@@ -86,7 +85,6 @@
     <Content Include="styles\projects.css" />
     <Content Include="styles\site.css" />
     <Content Include="styles\skills.css" />
-    <Content Include="Admin\ViewJudges.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -97,16 +95,6 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AdminBasePage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\OnlineJudgeManagement.aspx.cs">
-      <DependentUpon>OnlineJudgeManagement.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\OnlineJudgeManagement.aspx.designer.cs">
-      <DependentUpon>OnlineJudgeManagement.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -114,7 +102,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DAL\OnlineJudgeDAL.cs" />
     <Compile Include="Admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,7 +119,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\AdminAuth.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,7 +133,11 @@
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ICPCHistory.cs" />
+    <Compile Include="Models\IUPCHistory.cs" />
     <Compile Include="Models\OnlineJudge.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\Skill.cs" />
     <Compile Include="Projects.aspx.cs">
       <DependentUpon>Projects.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -169,13 +159,6 @@
     </Compile>
     <Compile Include="Skills.aspx.designer.cs">
       <DependentUpon>Skills.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ViewJudges.aspx.cs">
-      <DependentUpon>ViewJudges.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ViewJudges.aspx.designer.cs">
-      <DependentUpon>ViewJudges.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

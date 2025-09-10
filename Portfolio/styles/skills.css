@@ -1,4 +1,4 @@
-﻿/* ===== SKILLS PAGE RESPONSIVE STYLING ===== */
+﻿/* ===== SKILLS PAGE RESPONSIVE STYLING WITH IMAGE INTEGRATION ===== */
 /* This file contains styles for the skills page including skill categories, competitive programming stats, and contest achievements */
 
 /* ===== SKILLS GRID LAYOUT ===== */
@@ -26,7 +26,7 @@
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
-    min-height: 350px;
+    min-height: 400px;
 }
 
     /* Rotating conic gradient border effect for skill categories */
@@ -105,17 +105,59 @@
     z-index: 1;
 }
 
-/* Individual skill item container */
+/* ===== SKILL ITEMS WITH IMAGE INTEGRATION ===== */
+/* Individual skill item container with image support */
 .skill-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     position: relative;
     z-index: 1;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 /* Skill item slide animation on category hover */
 .skill-category:hover .skill-item {
     transform: translateX(5px);
+}
+
+/* Skill Image Section - Similar to Project Image */
+.skill-image {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(64, 224, 208, 0.2));
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.skill-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+}
+
+/* Skill Icon - Fallback display below image */
+.skill-icon {
+    text-align: center;
+    margin-bottom: 0.8rem;
+}
+
+    .skill-icon i {
+        font-size: 1.8rem;
+        color: #00ffff;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+/* Hover effects for skill images */
+.skill-category:hover .skill-image {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
 /* Skill name label styling */
@@ -231,6 +273,7 @@
     margin-bottom: 3rem;
 }
 
+/* ===== JUDGE CARDS WITH IMAGE INTEGRATION ===== */
 /* Individual online judge card styling */
 .judge-card {
     background: linear-gradient(135deg, rgba(16, 7, 43, 0.8), rgba(14, 15, 43, 0.9));
@@ -242,7 +285,7 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    min-height: 220px;
+    min-height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -272,40 +315,52 @@
         box-shadow: 0 15px 40px rgba(0, 255, 255, 0.15);
     }
 
-/* Judge card header with logo and name */
-.judge-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-/* Judge platform logo styling */
-.judge-logo {
-    width: 55px;
-    height: 55px;
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(64, 224, 208, 0.3));
-    border-radius: 50%;
+/* Judge Image Section - Similar to Project Image, positioned on top */
+.judge-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem auto;
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(64, 224, 208, 0.2));
+    border: 1px solid rgba(0, 255, 255, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    transition: all 0.4s ease;
-    flex-shrink: 0;
+    transition: all 0.3s ease;
 }
 
-    .judge-logo i {
-        font-size: 1.5rem;
+.judge-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+/* Judge Icon - Fallback display below image */
+.judge-icon {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+    .judge-icon i {
+        font-size: 2rem;
         color: #00ffff;
-        text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
     }
 
-/* Judge logo animation on card hover */
-.judge-card:hover .judge-logo {
-    transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+/* Hover effects for judge images */
+.judge-card:hover .judge-image {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Judge card header with name - positioned below image */
+.judge-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 /* Judge platform name styling */
@@ -316,7 +371,7 @@
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
-    flex-grow: 1;
+    display: block;
 }
 
     /* Animated underline for judge name */
@@ -324,7 +379,8 @@
         content: '';
         position: absolute;
         bottom: -2px;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         width: 0;
         height: 2px;
         background: linear-gradient(90deg, #00ffff, #40e0d0);
@@ -391,6 +447,43 @@
     background: rgba(0, 255, 255, 0.2);
     transform: scale(1.05);
 }
+
+/* Hide the old judge-logo styles since we're using judge-image now */
+.judge-logo {
+    display: none;
+}
+
+/* ===== NO JUDGES MESSAGE ===== */
+/* No judges found message styling */
+.no-judges-message {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #b8c5d6;
+}
+
+.no-judges-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+    .no-judges-container i {
+        font-size: 4rem;
+        color: #00ffff;
+        margin-bottom: 2rem;
+        display: block;
+    }
+
+    .no-judges-container h3 {
+        color: #00ffff;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .no-judges-container p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+    }
 
 /* ===== CONTEST SECTIONS ===== */
 /* Container for contest achievement tables */
@@ -563,6 +656,13 @@
     border-color: rgba(192, 192, 192, 0.4);
 }
 
+/* Average rank styling (bronze theme) */
+.rank-average {
+    background: linear-gradient(135deg, rgba(205, 127, 50, 0.2), rgba(184, 115, 51, 0.3));
+    color: #cd7f32;
+    border-color: rgba(205, 127, 50, 0.4);
+}
+
 /* Rank badge hover effect */
 .rank-badge:hover {
     transform: scale(1.05);
@@ -641,13 +741,23 @@
     }
 
     .skill-category {
-        min-height: 380px;
+        min-height: 420px;
         padding: 3rem;
     }
 
     .judge-card {
-        min-height: 250px;
+        min-height: 300px;
         padding: 2.5rem;
+    }
+
+    .skill-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .judge-image {
+        width: 90px;
+        height: 90px;
     }
 }
 
@@ -661,17 +771,27 @@
     }
 
     .skill-category {
-        min-height: 320px;
+        min-height: 380px;
         padding: 2rem;
     }
 
     .judge-card {
         padding: 1.8rem;
-        min-height: 200px;
+        min-height: 260px;
     }
 
     .contest-table-container {
         padding: 1.5rem;
+    }
+
+    .skill-image {
+        width: 55px;
+        height: 55px;
+    }
+
+    .judge-image {
+        width: 75px;
+        height: 75px;
     }
 }
 
@@ -685,7 +805,7 @@
     }
 
     .skill-category {
-        min-height: 280px;
+        min-height: 320px;
         padding: 1.5rem;
     }
 
@@ -695,7 +815,7 @@
 
     .judge-card {
         padding: 1.5rem;
-        min-height: 180px;
+        min-height: 240px;
     }
 
     .problem-count {
@@ -721,6 +841,16 @@
         .contest-table td {
             padding: 1rem;
         }
+
+    .skill-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .judge-image {
+        width: 70px;
+        height: 70px;
+    }
 }
 
 /* 4. Phone (up to 767px) */
@@ -733,7 +863,7 @@
     }
 
     .skill-category {
-        min-height: 250px;
+        min-height: 280px;
         padding: 1.2rem;
     }
 
@@ -759,24 +889,12 @@
 
     .judge-card {
         padding: 1.2rem;
-        min-height: 160px;
+        min-height: 220px;
     }
 
     .judge-header {
         margin-bottom: 1rem;
-        flex-direction: column;
-        text-align: center;
-        gap: 0.8rem;
     }
-
-    .judge-logo {
-        width: 50px;
-        height: 50px;
-    }
-
-        .judge-logo i {
-            font-size: 1.3rem;
-        }
 
     .judge-name {
         font-size: 1.2rem;
@@ -810,5 +928,139 @@
     .status-badge {
         font-size: 0.7rem;
         padding: 0.3rem 0.6rem;
+    }
+
+    .skill-image {
+        width: 45px;
+        height: 45px;
+    }
+
+    .judge-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .skill-icon i {
+        font-size: 1.5rem;
+    }
+
+    .judge-icon i {
+        font-size: 1.8rem;
+    }
+}
+
+/* ===== ADDITIONAL ANIMATIONS AND EFFECTS ===== */
+
+/* Skill item entrance animation */
+.skill-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: skillItemIn 0.6s ease forwards;
+}
+
+@keyframes skillItemIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for skill items */
+.skill-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.skill-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.skill-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.skill-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.skill-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* Judge card entrance animation */
+.judge-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: judgeCardIn 0.8s ease forwards;
+}
+
+@keyframes judgeCardIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for judge cards */
+.judge-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.judge-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.judge-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.judge-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.judge-card:nth-child(5) {
+    animation-delay: 1.0s;
+}
+
+.judge-card:nth-child(6) {
+    animation-delay: 1.2s;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .skill-category,
+    .judge-card,
+    .contest-table-container {
+        border: 2px solid #00ffff;
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    .skill-name,
+    .judge-name,
+    .contest-link {
+        color: #ffffff;
+    }
+
+    .rank-badge,
+    .status-badge {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .skill-category,
+    .judge-card,
+    .skill-image,
+    .judge-image,
+    .skill-progress {
+        transition: none;
+        animation: none;
+    }
+
+    .skill-item,
+    .judge-card {
+        opacity: 1;
+        transform: none;
+        animation: none;
     }
 }
