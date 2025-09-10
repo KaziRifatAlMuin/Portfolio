@@ -9,11 +9,8 @@
 
 namespace Portfolio.Admin
 {
-
-
     public partial class OnlineJudgeManagement
     {
-
         /// <summary>
         /// lblMessage control.
         /// </summary>
@@ -51,15 +48,6 @@ namespace Portfolio.Admin
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvJudgeName;
 
         /// <summary>
-        /// revJudgeName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revJudgeName;
-
-        /// <summary>
         /// txtSolveCount control.
         /// </summary>
         /// <remarks>
@@ -76,15 +64,6 @@ namespace Portfolio.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSolveCount;
-
-        /// <summary>
-        /// rvSolveCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvSolveCount;
 
         /// <summary>
         /// txtProfileLink control.
@@ -105,15 +84,6 @@ namespace Portfolio.Admin
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProfileLink;
 
         /// <summary>
-        /// revProfileLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revProfileLink;
-
-        /// <summary>
         /// chkDisplay control.
         /// </summary>
         /// <remarks>
@@ -121,5 +91,32 @@ namespace Portfolio.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkDisplay;
+
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
+
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
+
+        /// <summary>
+        /// gvOnlineJudges control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvOnlineJudges;
     }
 }

@@ -13,39 +13,55 @@ namespace Portfolio.DAL
 
         public OnlineJudgeDAL()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["PortfolioConnectionString"].ConnectionString;
+            try
+            {
+                _connectionString = ConfigurationManager.ConnectionStrings["PortfolioConnectionString"].ConnectionString;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Connection string error: " + ex.Message);
+                throw new Exception("Database connection configuration error. Please check your connection string.");
+            }
         }
 
         public List<OnlineJudge> GetAllOnlineJudges()
         {
             List<OnlineJudge> judges = new List<OnlineJudge>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                string query = @"SELECT Id, JudgeName, ProfileLink, SolveCount, Display, CreatedDate, ModifiedDate 
-                                FROM OnlineJudge 
-                                ORDER BY SolveCount DESC";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    string query = @"SELECT Id, JudgeName, ProfileLink, SolveCount, Display, CreatedDate, ModifiedDate 
+                                    FROM OnlineJudge 
+                                    ORDER BY SolveCount DESC";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            judges.Add(new OnlineJudge
+                            while (reader.Read())
                             {
-                                Id = Convert.ToInt32(reader["Id"]),
-                                JudgeName = reader["JudgeName"].ToString(),
-                                ProfileLink = reader["ProfileLink"].ToString(),
-                                SolveCount = Convert.ToInt32(reader["SolveCount"]),
-                                Display = Convert.ToBoolean(reader["Display"]),
-                                CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
-                                ModifiedDate = reader["ModifiedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ModifiedDate"])
-                            });
+                                judges.Add(new OnlineJudge
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    JudgeName = reader["JudgeName"].ToString(),
+                                    ProfileLink = reader["ProfileLink"].ToString(),
+                                    SolveCount = Convert.ToInt32(reader["SolveCount"]),
+                                    Display = Convert.ToBoolean(reader["Display"]),
+                                    CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
+                                    ModifiedDate = reader["ModifiedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ModifiedDate"])
+                                });
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("GetAllOnlineJudges error: " + ex.Message);
+                // Return empty list on error instead of throwing
             }
 
             return judges;
@@ -55,33 +71,41 @@ namespace Portfolio.DAL
         {
             List<OnlineJudge> judges = new List<OnlineJudge>();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                string query = @"SELECT Id, JudgeName, ProfileLink, SolveCount, Display, CreatedDate, ModifiedDate 
-                                FROM OnlineJudge 
-                                WHERE Display = 1 
-                                ORDER BY SolveCount DESC";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    string query = @"SELECT Id, JudgeName, ProfileLink, SolveCount, Display, CreatedDate, ModifiedDate 
+                                    FROM OnlineJudge 
+                                    WHERE Display = 1 
+                                    ORDER BY SolveCount DESC";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            judges.Add(new OnlineJudge
+                            while (reader.Read())
                             {
-                                Id = Convert.ToInt32(reader["Id"]),
-                                JudgeName = reader["JudgeName"].ToString(),
-                                ProfileLink = reader["ProfileLink"].ToString(),
-                                SolveCount = Convert.ToInt32(reader["SolveCount"]),
-                                Display = Convert.ToBoolean(reader["Display"]),
-                                CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
-                                ModifiedDate = reader["ModifiedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ModifiedDate"])
-                            });
+                                judges.Add(new OnlineJudge
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    JudgeName = reader["JudgeName"].ToString(),
+                                    ProfileLink = reader["ProfileLink"].ToString(),
+                                    SolveCount = Convert.ToInt32(reader["SolveCount"]),
+                                    Display = Convert.ToBoolean(reader["Display"]),
+                                    CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
+                                    ModifiedDate = reader["ModifiedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ModifiedDate"])
+                                });
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("GetDisplayedOnlineJudges error: " + ex.Message);
+                // Return empty list on error instead of throwing
             }
 
             return judges;
@@ -91,33 +115,40 @@ namespace Portfolio.DAL
         {
             OnlineJudge judge = null;
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                string query = @"SELECT Id, JudgeName, ProfileLink, SolveCount, Display, CreatedDate, ModifiedDate 
-                                FROM OnlineJudge 
-                                WHERE Id = @Id";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    command.Parameters.AddWithValue("@Id", id);
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    string query = @"SELECT Id, JudgeName, ProfileLink, SolveCount, Display, CreatedDate, ModifiedDate 
+                                    FROM OnlineJudge 
+                                    WHERE Id = @Id";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        if (reader.Read())
+                        command.Parameters.AddWithValue("@Id", id);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            judge = new OnlineJudge
+                            if (reader.Read())
                             {
-                                Id = Convert.ToInt32(reader["Id"]),
-                                JudgeName = reader["JudgeName"].ToString(),
-                                ProfileLink = reader["ProfileLink"].ToString(),
-                                SolveCount = Convert.ToInt32(reader["SolveCount"]),
-                                Display = Convert.ToBoolean(reader["Display"]),
-                                CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
-                                ModifiedDate = reader["ModifiedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ModifiedDate"])
-                            };
+                                judge = new OnlineJudge
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    JudgeName = reader["JudgeName"].ToString(),
+                                    ProfileLink = reader["ProfileLink"].ToString(),
+                                    SolveCount = Convert.ToInt32(reader["SolveCount"]),
+                                    Display = Convert.ToBoolean(reader["Display"]),
+                                    CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
+                                    ModifiedDate = reader["ModifiedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ModifiedDate"])
+                                };
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("GetOnlineJudgeById error: " + ex.Message);
             }
 
             return judge;
@@ -146,8 +177,9 @@ namespace Portfolio.DAL
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine("InsertOnlineJudge error: " + ex.Message);
                 return false;
             }
         }
@@ -181,8 +213,9 @@ namespace Portfolio.DAL
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine("UpdateOnlineJudge error: " + ex.Message);
                 return false;
             }
         }
@@ -204,8 +237,9 @@ namespace Portfolio.DAL
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine("DeleteOnlineJudge error: " + ex.Message);
                 return false;
             }
         }

@@ -1,12 +1,30 @@
-﻿<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Portfolio.Admin.Dashboard" %>
+﻿<%@ Page Title="Admin Dashboard" Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Portfolio.Admin.Dashboard" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="../styles/admin.css" />
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, rgba(14, 15, 43, 0.95) 0%, rgba(16, 7, 43, 0.9) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
         .dashboard-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .dashboard-header {
@@ -30,6 +48,30 @@
             color: #b8c5d6;
             font-size: 1.1rem;
             margin-bottom: 1rem;
+        }
+
+        .back-portfolio-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: linear-gradient(135deg, #666, #999);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-portfolio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 102, 102, 0.4);
+            color: #fff;
         }
 
         .logout-btn {
@@ -56,14 +98,15 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: 2rem;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .dashboard-card {
             background: linear-gradient(135deg, rgba(16, 7, 43, 0.8), rgba(14, 15, 43, 0.9));
             border: 1px solid rgba(0, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem;
             text-align: center;
             transition: all 0.4s ease;
             position: relative;
@@ -93,9 +136,9 @@
         }
 
         .card-icon {
-            font-size: 3rem;
+            font-size: 4rem;
             color: #00ffff;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
             position: relative;
             z-index: 1;
@@ -103,7 +146,7 @@
 
         .card-title {
             color: #ffffff;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
             position: relative;
             z-index: 1;
@@ -111,17 +154,18 @@
 
         .card-description {
             color: #b8c5d6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
             z-index: 1;
+            line-height: 1.6;
         }
 
         .card-button {
             background: linear-gradient(135deg, #00ffff, #40e0d0);
             color: #000;
             border: none;
-            border-radius: 10px;
-            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            padding: 1rem 2rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -129,52 +173,14 @@
             display: inline-block;
             position: relative;
             z-index: 1;
+            font-size: 1.1rem;
         }
 
         .card-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
-        }
-
-        .stats-section {
-            background: linear-gradient(135deg, rgba(16, 7, 43, 0.8), rgba(14, 15, 43, 0.9));
-            border: 1px solid rgba(0, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .stats-section h3 {
-            color: #00ffff;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(0, 255, 255, 0.05);
-            border-radius: 10px;
-            border: 1px solid rgba(0, 255, 255, 0.1);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            color: #00ffff;
-            font-weight: 700;
-            display: block;
-        }
-
-        .stat-label {
-            color: #b8c5d6;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+            background: linear-gradient(135deg, #40e0d0, #00ffff);
+            color: #000;
         }
 
         @media (max-width: 768px) {
@@ -182,93 +188,56 @@
                 grid-template-columns: 1fr;
             }
             
-            .logout-btn {
+            .back-portfolio-btn, .logout-btn {
                 position: static;
-                margin-top: 1rem;
+                margin: 0.5rem;
+            }
+            
+            .dashboard-header {
+                padding: 1.5rem;
             }
         }
     </style>
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="dashboard-container">
-        <div class="dashboard-header">
-            <a href="Login.aspx" class="logout-btn" onclick="return confirmLogout();">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
-            <h1>Admin Dashboard</h1>
-            <p class="welcome-text">Welcome back, <asp:Label ID="lblAdminName" runat="server" Text="Admin"></asp:Label>!</p>
-            <p style="color: #b8c5d6;">Manage your portfolio content from here</p>
-        </div>
-
-        <div class="stats-section">
-            <h3>Quick Statistics</h3>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number"><asp:Label ID="lblTotalJudges" runat="server" Text="0"></asp:Label></span>
-                    <div class="stat-label">Total Judges</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number"><asp:Label ID="lblActiveJudges" runat="server" Text="0"></asp:Label></span>
-                    <div class="stat-label">Active Judges</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number"><asp:Label ID="lblTotalSolves" runat="server" Text="0"></asp:Label></span>
-                    <div class="stat-label">Total Solves</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="dashboard-grid">
-            <div class="dashboard-card">
-                <div class="card-icon">
-                    <i class="fas fa-plus-circle"></i>
-                </div>
-                <h3 class="card-title">Add Judge</h3>
-                <p class="card-description">Add new competitive programming platform entries to showcase your achievements</p>
-                <a href="OnlineJudgeManagement.aspx" class="card-button">
-                    <i class="fas fa-plus"></i> Add New Judge
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <a href="../Home.aspx" class="back-portfolio-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Portfolio
                 </a>
+                <asp:LinkButton ID="btnLogout" runat="server" CssClass="logout-btn" OnClick="btnLogout_Click" OnClientClick="return confirm('Are you sure you want to logout?');">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </asp:LinkButton>
+                <h1>🎯 Admin Dashboard</h1>
+                <p class="welcome-text">Welcome back, <asp:Label ID="lblAdminName" runat="server" Text="Admin"></asp:Label>!</p>
+                <p style="color: #b8c5d6;">Manage your online judge entries</p>
             </div>
 
-            <div class="dashboard-card">
-                <div class="card-icon">
-                    <i class="fas fa-list"></i>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3 class="card-title">Add Judge</h3>
+                    <p class="card-description">Add new competitive programming platform entries to showcase your achievements on the skills page</p>
+                    <a href="OnlineJudgeManagement.aspx" class="card-button">
+                        <i class="fas fa-plus"></i> Add New Judge
+                    </a>
                 </div>
-                <h3 class="card-title">View Judges</h3>
-                <p class="card-description">View, edit, and manage all existing online judge entries and their details</p>
-                <a href="ViewJudges.aspx" class="card-button">
-                    <i class="fas fa-eye"></i> View All Judges
-                </a>
-            </div>
 
-            <div class="dashboard-card">
-                <div class="card-icon">
-                    <i class="fas fa-chart-bar"></i>
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <h3 class="card-title">View Judges</h3>
+                    <p class="card-description">View, edit, and manage all existing online judge entries in a clean table format with edit and delete options</p>
+                    <a href="ViewJudges.aspx" class="card-button">
+                        <i class="fas fa-eye"></i> View All Judges
+                    </a>
                 </div>
-                <h3 class="card-title">Analytics</h3>
-                <p class="card-description">View detailed statistics and analytics about your competitive programming journey</p>
-                <a href="#" class="card-button">
-                    <i class="fas fa-chart-line"></i> View Analytics
-                </a>
-            </div>
-
-            <div class="dashboard-card">
-                <div class="card-icon">
-                    <i class="fas fa-cog"></i>
-                </div>
-                <h3 class="card-title">Settings</h3>
-                <p class="card-description">Configure system settings and manage your admin preferences</p>
-                <a href="#" class="card-button">
-                    <i class="fas fa-cogs"></i> Settings
-                </a>
             </div>
         </div>
-    </div>
-
-    <script>
-        function confirmLogout() {
-            return confirm('Are you sure you want to logout?');
-        }
-    </script>
-</asp:Content>
+    </form>
+</body>
+</html>

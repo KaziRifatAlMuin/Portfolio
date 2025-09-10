@@ -1,17 +1,15 @@
 ﻿using System;
+using System.Web;
 using System.Web.UI;
-using Portfolio.DAL;
 
 namespace Portfolio.Admin
 {
     public partial class Dashboard : Page
     {
-        private OnlineJudgeDAL judgeDAL = new OnlineJudgeDAL();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             // Check if user is logged in
-            if (Session["IsAdminLoggedIn"] == null || !(bool)Session["IsAdminLoggedIn"])
+            if (!IsAdminLoggedIn())
             {
                 Response.Redirect("Login.aspx");
                 return;
@@ -23,6 +21,32 @@ namespace Portfolio.Admin
             }
         }
 
+        private bool IsAdminLoggedIn()
+        {
+            // Check session first
+            if (Session["IsAdminLoggedIn"] != null && (bool)Session["IsAdminLoggedIn"])
+            {
+                return true;
+            }
+
+            // Check cookie if session is not set
+            HttpCookie authCookie = Request.Cookies["AdminAuth"];
+            if (authCookie != null && authCookie.Value == "true")
+            {
+                // Restore session from cookie
+                HttpCookie userCookie = Request.Cookies["AdminUser"];
+                if (userCookie != null)
+                {
+                    Session["IsAdminLoggedIn"] = true;
+                    Session["AdminUsername"] = userCookie.Value;
+                    Session["LoginTime"] = DateTime.Now;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void LoadDashboardData()
         {
             try
@@ -32,27 +56,47 @@ namespace Portfolio.Admin
                 {
                     lblAdminName.Text = Session["AdminUsername"].ToString();
                 }
-
-                // Load statistics
-                var allJudges = judgeDAL.GetAllOnlineJudges();
-                var activeJudges = judgeDAL.GetDisplayedOnlineJudges();
-
-                lblTotalJudges.Text = allJudges.Count.ToString();
-                lblActiveJudges.Text = activeJudges.Count.ToString();
-
-                int totalSolves = 0;
-                foreach (var judge in allJudges)
+                else
                 {
-                    totalSolves += judge.SolveCount;
+                    lblAdminName.Text = "Admin";
                 }
-                lblTotalSolves.Text = totalSolves.ToString("N0");
             }
             catch (Exception ex)
             {
                 // Handle error gracefully
-                lblTotalJudges.Text = "Error";
-                lblActiveJudges.Text = "Error";
-                lblTotalSolves.Text = "Error";
+                lblAdminName.Text = "Admin";
+                System.Diagnostics.Debug.WriteLine("Dashboard load error: " + ex.Message);
+            }
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Clear session
+                Session["IsAdminLoggedIn"] = null;
+                Session["AdminUsername"] = null;
+                Session["LoginTime"] = null;
+                Session.Clear();
+
+                // Clear cookies
+                HttpCookie authCookie = new HttpCookie("AdminAuth", "");
+                authCookie.Expires = DateTime.Now.AddDays(-1);
+                authCookie.HttpOnly = true;
+                Response.Cookies.Add(authCookie);
+
+                HttpCookie userCookie = new HttpCookie("AdminUser", "");
+                userCookie.Expires = DateTime.Now.AddDays(-1);
+                userCookie.HttpOnly = true;
+                Response.Cookies.Add(userCookie);
+
+                // Redirect to login page
+                Response.Redirect("Login.aspx");
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Logout error: " + ex.Message);
+                Response.Redirect("Login.aspx");
             }
         }
     }

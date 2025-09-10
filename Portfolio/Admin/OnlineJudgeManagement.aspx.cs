@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Portfolio.DAL;
@@ -13,8 +14,8 @@ namespace Portfolio.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check if user is logged in
-            if (Session["IsAdminLoggedIn"] == null || !(bool)Session["IsAdminLoggedIn"])
+            // Check authentication
+            if (!IsAdminLoggedIn())
             {
                 Response.Redirect("Login.aspx");
                 return;
@@ -36,6 +37,28 @@ namespace Portfolio.Admin
             }
         }
 
+        private bool IsAdminLoggedIn()
+        {
+            if (Session["IsAdminLoggedIn"] != null && (bool)Session["IsAdminLoggedIn"])
+            {
+                return true;
+            }
+
+            var authCookie = Request.Cookies["AdminAuth"];
+            if (authCookie != null && authCookie.Value == "true")
+            {
+                var userCookie = Request.Cookies["AdminUser"];
+                if (userCookie != null)
+                {
+                    Session["IsAdminLoggedIn"] = true;
+                    Session["AdminUsername"] = userCookie.Value;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void LoadJudgeForEdit(int judgeId)
         {
             try
@@ -49,16 +72,17 @@ namespace Portfolio.Admin
                     txtSolveCount.Text = judge.SolveCount.ToString();
                     chkDisplay.Checked = judge.Display;
                     btnSave.Text = "💾 Update Entry";
-                    ShowMessage($"Entry '{judge.JudgeName}' loaded for editing.", "success");
+                    ShowMessage($"✏️ Entry '{judge.JudgeName}' loaded for editing.", "success");
                 }
                 else
                 {
-                    ShowMessage("Judge entry not found.", "error");
+                    ShowMessage("❌ Judge entry not found.", "error");
                 }
             }
             catch (Exception ex)
             {
-                ShowMessage("Error loading entry: " + ex.Message, "error");
+                ShowMessage("❌ Error loading entry: " + ex.Message, "error");
+                System.Diagnostics.Debug.WriteLine("LoadJudgeForEdit error: " + ex.Message);
             }
         }
 
@@ -69,16 +93,11 @@ namespace Portfolio.Admin
                 List<OnlineJudge> judges = judgeDAL.GetAllOnlineJudges();
                 gvOnlineJudges.DataSource = judges;
                 gvOnlineJudges.DataBind();
-
-                // Update page info
-                if (judges.Count > 0)
-                {
-                    Page.Title = $"Online Judge Management ({judges.Count} entries)";
-                }
             }
             catch (Exception ex)
             {
-                ShowMessage("Error loading data: " + ex.Message, "error");
+                ShowMessage("❌ Error loading data: " + ex.Message, "error");
+                System.Diagnostics.Debug.WriteLine("BindOnlineJudges error: " + ex.Message);
             }
         }
 
@@ -88,6 +107,7 @@ namespace Portfolio.Admin
             {
                 try
                 {
+                    // Create judge object from form data
                     OnlineJudge judge = new OnlineJudge
                     {
                         JudgeName = txtJudgeName.Text.Trim(),
@@ -97,31 +117,35 @@ namespace Portfolio.Admin
                     };
 
                     bool success;
-                    if (hdnJudgeId.Value == "0" || string.IsNullOrEmpty(hdnJudgeId.Value))
+                    string judgeId = hdnJudgeId.Value;
+
+                    if (string.IsNullOrEmpty(judgeId) || judgeId == "0")
                     {
                         // Add new entry
+                        judge.CreatedDate = DateTime.Now;
                         success = judgeDAL.InsertOnlineJudge(judge);
                         if (success)
                         {
-                            ShowMessage($"✅ Online judge entry '{judge.JudgeName}' added successfully!", "success");
+                            ShowMessage($"✅ Judge '{judge.JudgeName}' added successfully!", "success");
                         }
                         else
                         {
-                            ShowMessage("❌ Error adding entry. Please try again.", "error");
+                            ShowMessage("❌ Error adding entry. Please check your database connection.", "error");
                         }
                     }
                     else
                     {
                         // Update existing entry
-                        judge.Id = Convert.ToInt32(hdnJudgeId.Value);
+                        judge.Id = Convert.ToInt32(judgeId);
+                        judge.ModifiedDate = DateTime.Now;
                         success = judgeDAL.UpdateOnlineJudge(judge);
                         if (success)
                         {
-                            ShowMessage($"✅ Online judge entry '{judge.JudgeName}' updated successfully!", "success");
+                            ShowMessage($"✅ Judge '{judge.JudgeName}' updated successfully!", "success");
                         }
                         else
                         {
-                            ShowMessage("❌ Error updating entry. Please try again.", "error");
+                            ShowMessage("❌ Error updating entry. Please check your database connection.", "error");
                         }
                     }
 
@@ -138,13 +162,13 @@ namespace Portfolio.Admin
                 catch (Exception ex)
                 {
                     ShowMessage("❌ Error: " + ex.Message, "error");
+                    System.Diagnostics.Debug.WriteLine("btnSave_Click error: " + ex.Message);
                 }
             }
-        }
-
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Dashboard.aspx");
+            else
+            {
+                ShowMessage("❌ Please fill in all required fields correctly.", "error");
+            }
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
@@ -155,11 +179,11 @@ namespace Portfolio.Admin
 
         protected void gvOnlineJudges_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int judgeId = Convert.ToInt32(e.CommandArgument);
-
-            if (e.CommandName == "EditJudge")
+            try
             {
-                try
+                int judgeId = Convert.ToInt32(e.CommandArgument);
+
+                if (e.CommandName == "EditJudge")
                 {
                     OnlineJudge judge = judgeDAL.GetOnlineJudgeById(judgeId);
                     if (judge != null)
@@ -173,20 +197,16 @@ namespace Portfolio.Admin
                         ShowMessage($"📝 Entry '{judge.JudgeName}' loaded for editing.", "success");
 
                         // Scroll to form
-                        ScriptManager.RegisterStartupScript(this, GetType(), "ScrollToForm",
+                        ClientScript.RegisterStartupScript(this.GetType(), "ScrollToForm",
                             "document.querySelector('.form-section').scrollIntoView({behavior: 'smooth'});", true);
                     }
+                    else
+                    {
+                        ShowMessage("❌ Judge entry not found.", "error");
+                    }
                 }
-                catch (Exception ex)
+                else if (e.CommandName == "DeleteJudge")
                 {
-                    ShowMessage("❌ Error loading entry: " + ex.Message, "error");
-                }
-            }
-            else if (e.CommandName == "DeleteJudge")
-            {
-                try
-                {
-                    // Get judge name for confirmation message
                     OnlineJudge judge = judgeDAL.GetOnlineJudgeById(judgeId);
                     string judgeName = judge?.JudgeName ?? "Unknown";
 
@@ -207,27 +227,11 @@ namespace Portfolio.Admin
                         ShowMessage("❌ Error deleting entry. Please try again.", "error");
                     }
                 }
-                catch (Exception ex)
-                {
-                    ShowMessage("❌ Error deleting entry: " + ex.Message, "error");
-                }
             }
-        }
-
-        protected void gvOnlineJudges_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            catch (Exception ex)
             {
-                // Add hover effect and styling
-                e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='rgba(0, 255, 255, 0.08)'");
-                e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=''");
-
-                // Add data attributes for potential JavaScript functionality
-                if (e.Row.DataItem is OnlineJudge judge)
-                {
-                    e.Row.Attributes.Add("data-judge-id", judge.Id.ToString());
-                    e.Row.Attributes.Add("data-judge-name", judge.JudgeName);
-                }
+                ShowMessage("❌ Error: " + ex.Message, "error");
+                System.Diagnostics.Debug.WriteLine("gvOnlineJudges_RowCommand error: " + ex.Message);
             }
         }
 
@@ -239,16 +243,6 @@ namespace Portfolio.Admin
             txtSolveCount.Text = "";
             chkDisplay.Checked = true;
             btnSave.Text = "💾 Save Entry";
-
-            // Clear any validation errors
-            Page.Validate();
-            if (!Page.IsValid)
-            {
-                foreach (BaseValidator validator in Page.Validators)
-                {
-                    validator.IsValid = true;
-                }
-            }
         }
 
         private void ShowMessage(string message, string type)
@@ -257,11 +251,10 @@ namespace Portfolio.Admin
             lblMessage.CssClass = "message " + type;
             lblMessage.Visible = true;
 
-            // Auto-hide success messages after 5 seconds
             if (type == "success")
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "HideMessage",
-                    "setTimeout(function() { var msg = document.querySelector('.message.success'); if(msg) msg.style.display = 'none'; }, 5000);", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "HideMessage",
+                    "setTimeout(function() { var msg = document.querySelector('.message.success'); if(msg) msg.style.display = 'none'; }, 4000);", true);
             }
         }
     }
