@@ -263,7 +263,7 @@
 
         /* Primary button (Save) styling */
         .btn-primary {
-            background: linear-gradient(135deg, #00ffff, #40e0d0);
+            background: linear-gradient(135deg, #00ffff, #0000ff);
             color: #ffffff;
         }
 
@@ -276,7 +276,7 @@
 
         /* Warning button (Clear) styling */
         .btn-warning {
-            background: linear-gradient(135deg, #ffa500, #ff8c00);
+            background: linear-gradient(135deg, #ff0000, #500000);
             color: #ffffff;
         }
 
@@ -323,6 +323,7 @@
             order: 1;
         }
 
+        /* Table section heading */
         /* Table section heading */
         .table-section h3 {
             color: #00ffff;
@@ -376,8 +377,6 @@
             color: #40e0d0;
         }
 
-
-
         /* Small button base styling */
         .btn-small {
             padding: 0.4rem 0.8rem;
@@ -420,8 +419,7 @@
             background: linear-gradient(135deg, #ff5252, #f44336);
         }
 
-
-         /* CommandField button styling */
+        /* CommandField button styling */
         .data-table .commandfield-button {
             background: linear-gradient(135deg, #00ffff, #40e0d0) !important;
             color: #ffffff !important;
@@ -521,8 +519,6 @@
             box-shadow: 0 5px 15px rgba(234, 179, 8, 0.4) !important;
             background: linear-gradient(135deg, #ca8a04, #a16207) !important;
         }
-
-                
 
         /* Validation error message styling */
         .validation-error {
@@ -637,15 +633,15 @@
                     <asp:GridView ID="gvRecords" runat="server" AutoGenerateColumns="false" CssClass="data-table"
                         OnRowEditing="gvRecords_RowEditing" OnRowCancelingEdit="gvRecords_RowCancelingEdit"
                         OnRowUpdating="gvRecords_RowUpdating" OnRowDeleting="gvRecords_RowDeleting"
-                        OnRowCommand="gvRecords_RowCommand" EmptyDataText="">
+                        OnRowDataBound="gvRecords_RowDataBound" EmptyDataText="">
                         <Columns>
                         </Columns>
                     </asp:GridView>
                 </div>
 
-                <!-- Add/Edit Form - Now appears second -->
+                <!-- Add Form - Now appears second -->
                 <div class="form-section">
-                    <h3><asp:Label ID="lblFormTitle" runat="server" Text="📝 Add/Edit Entry"></asp:Label></h3>
+                    <h3><asp:Label ID="lblFormTitle" runat="server" Text="📝 Add Entry"></asp:Label></h3>
                     <asp:HiddenField ID="hdnRecordId" runat="server" Value="0" />
                     
                     <div class="form-row">
@@ -784,8 +780,6 @@
                     <div class="button-row">
                         <asp:Button ID="btnSave" runat="server" Text="💾 Save Entry" CssClass="btn btn-primary" 
                             OnClick="btnSave_Click" ValidationGroup="Entry" />
-                        <asp:Button ID="btnClear" runat="server" Text="🔄 Clear Form" CssClass="btn btn-warning" 
-                            OnClick="btnClear_Click" CausesValidation="false" />
                     </div>
                 </div>
             </div>

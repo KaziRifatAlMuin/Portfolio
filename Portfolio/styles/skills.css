@@ -448,9 +448,38 @@
     transform: scale(1.05);
 }
 
-/* Hide the old judge-logo styles since we're using judge-image now */
+/* Judge logo/image container styling */
 .judge-logo {
-    display: none;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem auto;
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(64, 224, 208, 0.2));
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+    .judge-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 10px;
+    }
+
+    .judge-logo i {
+        font-size: 2rem;
+        color: #00ffff;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+/* Hover effects for judge logo */
+.judge-card:hover .judge-logo {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
 /* ===== NO JUDGES MESSAGE ===== */

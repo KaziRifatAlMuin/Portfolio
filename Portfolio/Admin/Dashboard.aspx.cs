@@ -70,11 +70,11 @@ namespace Portfolio.Admin
         {
             switch (table)
             {
-                case "OnlineJudge": lblTableTitle.Text = "List of Online Judges"; lblFormTitle.Text = "Add a New Online Judge"; break;
-                case "Projects":    lblTableTitle.Text = "List of Projects";       lblFormTitle.Text = "Add a New Project"; break;
-                case "Skills":      lblTableTitle.Text = "List of Skills";         lblFormTitle.Text = "Add a New Skill"; break;
-                case "ICPCHistory": lblTableTitle.Text = "List of ICPC Entries";   lblFormTitle.Text = "Add a New ICPC Entry"; break;
-                case "IUPCHistory": lblTableTitle.Text = "List of IUPC Entries";   lblFormTitle.Text = "Add a New IUPC Entry"; break;
+                case "OnlineJudge": lblFormTitle.Text = "📝 Add Online Judge"; break;
+                case "Projects": lblFormTitle.Text = "📝 Add Project"; break;
+                case "Skills": lblFormTitle.Text = "📝 Add Skill"; break;
+                case "ICPCHistory": lblFormTitle.Text = "📝 Add ICPC Entry"; break;
+                case "IUPCHistory": lblFormTitle.Text = "📝 Add IUPC Entry"; break;
             }
         }
 
@@ -108,21 +108,7 @@ namespace Portfolio.Admin
             gvRecords.Columns.Clear();
             gvRecords.DataKeyNames = new[] { "Id" };
 
-            // CommandField with ButtonType=Button so CSS applies to <input> elements
-            var commands = new CommandField
-            {
-                ShowEditButton = true,
-                ShowDeleteButton = true,
-                ShowCancelButton = true,
-                ButtonType = ButtonType.Button,
-                EditText = "Edit",
-                UpdateText = "Update",
-                CancelText = "Cancel",
-                DeleteText = "Delete",
-                CausesValidation = false
-            };
-
-            // Bound fields per table (order matters for Edit indices)
+            // Add bound fields first
             switch (table)
             {
                 case "OnlineJudge":
@@ -154,8 +140,13 @@ namespace Portfolio.Admin
                     break;
             }
 
-            // Insert command field at the first position
-            gvRecords.Columns.Insert(0, commands);
+            // Add CommandField - Simple and standard approach
+            var commandField = new CommandField();
+            commandField.ShowEditButton = true;
+            commandField.ShowDeleteButton = true;
+            commandField.ShowCancelButton = true;
+            commandField.HeaderText = "Actions";
+            gvRecords.Columns.Add(commandField);
         }
 
         private void BindCurrentTable(string table)
@@ -164,15 +155,9 @@ namespace Portfolio.Admin
             {
                 using (var con = new SqlConnection(strcon))
                 {
-                    string query = table switch
-                    {
-                        "OnlineJudge" => "SELECT * FROM OnlineJudge ORDER BY SolveCount DESC",
-                        "Projects" => "SELECT * FROM Projects ORDER BY CreatedDate DESC",
-                        "Skills" => "SELECT * FROM Skills ORDER BY Type, Percentage DESC",
-                        "ICPCHistory" => "SELECT * FROM ICPCHistory ORDER BY ContestDate DESC",
-                        "IUPCHistory" => "SELECT * FROM IUPCHistory ORDER BY ContestDate DESC",
-                        _ => ""
-                    };
+                    string query = GetSelectQuery(table);
+                    if (string.IsNullOrEmpty(query)) return;
+
                     var da = new SqlDataAdapter(query, con);
                     var dt = new DataTable();
                     da.Fill(dt);
@@ -181,26 +166,27 @@ namespace Portfolio.Admin
                     gvRecords.Visible = dt.Rows.Count > 0;
                     gvRecords.DataSource = dt;
                     gvRecords.DataBind();
+
+                    System.Diagnostics.Debug.WriteLine($"Loaded {dt.Rows.Count} records from {table}");
                 }
             }
             catch (Exception ex)
             {
                 ShowMessage("Error loading data: " + ex.Message, "error");
+                System.Diagnostics.Debug.WriteLine($"BindCurrentTable error: {ex.Message}");
             }
         }
 
-        protected void gvRecords_RowDataBound(object sender, GridViewRowEventArgs e)
+        private string GetSelectQuery(string table)
         {
-            if (e.Row.RowType != DataControlRowType.DataRow) return;
-
-            // CommandField is in the first cell; add delete confirmation and keep buttons stylable 
-            foreach (Control ctrl in e.Row.Cells[0].Controls)
+            switch (table)
             {
-                if (ctrl is Button btn)
-                {
-                    if (btn.CommandName == "Delete")
-                        btn.OnClientClick = "return confirm('Are you sure you want to delete this entry?');";
-                }
+                case "OnlineJudge": return "SELECT * FROM OnlineJudge ORDER BY SolveCount DESC";
+                case "Projects": return "SELECT * FROM Projects ORDER BY CreatedDate DESC";
+                case "Skills": return "SELECT * FROM Skills ORDER BY Type, Percentage DESC";
+                case "ICPCHistory": return "SELECT * FROM ICPCHistory ORDER BY ContestDate DESC";
+                case "IUPCHistory": return "SELECT * FROM IUPCHistory ORDER BY ContestDate DESC";
+                default: return "";
             }
         }
 
@@ -210,6 +196,7 @@ namespace Portfolio.Admin
             ShowMessage("Switched to " + ddlTableSelector.SelectedItem.Text, "success");
         }
 
+        // ================== GRIDVIEW EVENTS ==================
         protected void gvRecords_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvRecords.EditIndex = e.NewEditIndex;
@@ -230,8 +217,10 @@ namespace Portfolio.Admin
                 GridViewRow row = gvRecords.Rows[e.RowIndex];
                 string table = ddlTableSelector.SelectedValue;
 
-                bool ok = UpdateRecord(table, id, row);
-                if (ok)
+                System.Diagnostics.Debug.WriteLine($"Updating record: Table={table}, Id={id}");
+
+                bool success = UpdateRecord(table, id, row);
+                if (success)
                 {
                     ShowMessage("Record updated successfully", "success");
                     gvRecords.EditIndex = -1;
@@ -245,6 +234,7 @@ namespace Portfolio.Admin
             catch (Exception ex)
             {
                 ShowMessage("Error: " + ex.Message, "error");
+                System.Diagnostics.Debug.WriteLine($"gvRecords_RowUpdating error: {ex.Message}");
             }
         }
 
@@ -252,27 +242,57 @@ namespace Portfolio.Admin
         {
             try
             {
+                System.Diagnostics.Debug.WriteLine($"=== DELETE EVENT TRIGGERED ===");
+
                 int id = Convert.ToInt32(gvRecords.DataKeys[e.RowIndex].Value);
                 string table = ddlTableSelector.SelectedValue;
 
-                bool ok = DeleteRecord(table, id);
-                if (ok)
+                System.Diagnostics.Debug.WriteLine($"Deleting: Table={table}, Id={id}");
+
+                using (SqlConnection con = new SqlConnection(strcon))
                 {
-                    ShowMessage("Record deleted successfully", "success");
-                    BindCurrentTable(table);
+                    SqlCommand cmd = new SqlCommand($"DELETE FROM {table} WHERE Id=@Id", con);
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    con.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    System.Diagnostics.Debug.WriteLine($"Rows affected: {rowsAffected}");
+
+                    if (rowsAffected > 0)
+                    {
+                        ShowMessage($"Record deleted successfully from {table}", "success");
+                        BindCurrentTable(table);
+                        System.Diagnostics.Debug.WriteLine($"Delete successful");
+                    }
+                    else
+                    {
+                        ShowMessage("No records were deleted", "error");
+                        System.Diagnostics.Debug.WriteLine($"No rows affected");
+                    }
                 }
-                else
-                {
-                    ShowMessage("Failed to delete record", "error");
-                }
+
+                System.Diagnostics.Debug.WriteLine($"=== DELETE EVENT COMPLETED ===");
             }
             catch (Exception ex)
             {
-                ShowMessage("Error: " + ex.Message, "error");
+                ShowMessage("Error during delete: " + ex.Message, "error");
+                System.Diagnostics.Debug.WriteLine($"Delete error: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"Stack trace: {ex.StackTrace}");
             }
         }
 
-        // IMPORTANT: Cell indexes assume CommandField at index 0, then BoundFields starting at index 1
+        protected void gvRecords_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // Add delete confirmation to the delete button
+                if (e.Row.RowState == DataControlRowState.Normal || e.Row.RowState == DataControlRowState.Alternate)
+                {
+                    ((LinkButton)e.Row.Cells[e.Row.Cells.Count - 1].Controls[2]).OnClientClick = "return confirm('Are you sure you want to delete this record?');";
+                }
+            }
+        }
+
         private bool UpdateRecord(string table, int id, GridViewRow row)
         {
             try
@@ -286,37 +306,37 @@ namespace Portfolio.Admin
                     {
                         case "OnlineJudge":
                             cmd.CommandText = "UPDATE OnlineJudge SET Name=@Name, SolveCount=@SolveCount, ProfileURL=@ProfileURL, ImageURL=@ImageURL, DisplayText=@DisplayText, ModifiedDate=@ModifiedDate WHERE Id=@Id";
-                            cmd.Parameters.AddWithValue("@Name", ((TextBox)row.Cells[1].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@SolveCount", Convert.ToInt32(((TextBox)row.Cells[2].Controls[0]).Text));
-                            cmd.Parameters.AddWithValue("@ProfileURL", ((TextBox)row.Cells[3].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@ImageURL", ((TextBox)row.Cells[4].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@DisplayText", ((TextBox)row.Cells[5].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@Name", ((TextBox)row.Cells[0].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@SolveCount", Convert.ToInt32(((TextBox)row.Cells[1].Controls[0]).Text));
+                            cmd.Parameters.AddWithValue("@ProfileURL", ((TextBox)row.Cells[2].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@ImageURL", ((TextBox)row.Cells[3].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@DisplayText", ((TextBox)row.Cells[4].Controls[0]).Text);
                             break;
 
                         case "Projects":
                             cmd.CommandText = "UPDATE Projects SET Title=@Title, ImageURL=@ImageURL, GitHubURL=@GitHubURL, Description=@Description, Tags=@Tags, ModifiedDate=@ModifiedDate WHERE Id=@Id";
-                            cmd.Parameters.AddWithValue("@Title", ((TextBox)row.Cells[1].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@ImageURL", ((TextBox)row.Cells[2].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@GitHubURL", ((TextBox)row.Cells[3].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@Description", ((TextBox)row.Cells[4].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@Tags", ((TextBox)row.Cells[5].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@Title", ((TextBox)row.Cells[0].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@ImageURL", ((TextBox)row.Cells[1].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@GitHubURL", ((TextBox)row.Cells[2].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@Description", ((TextBox)row.Cells[3].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@Tags", ((TextBox)row.Cells[4].Controls[0]).Text);
                             break;
 
                         case "Skills":
                             cmd.CommandText = "UPDATE Skills SET Name=@Name, Type=@Type, Percentage=@Percentage, ModifiedDate=@ModifiedDate WHERE Id=@Id";
-                            cmd.Parameters.AddWithValue("@Name", ((TextBox)row.Cells[1].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@Type", ((TextBox)row.Cells[2].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@Percentage", Convert.ToInt32(((TextBox)row.Cells[3].Controls[0]).Text));
+                            cmd.Parameters.AddWithValue("@Name", ((TextBox)row.Cells[0].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@Type", ((TextBox)row.Cells[1].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@Percentage", Convert.ToInt32(((TextBox)row.Cells[2].Controls[0]).Text));
                             break;
 
                         case "ICPCHistory":
                         case "IUPCHistory":
                             cmd.CommandText = $"UPDATE {table} SET ContestTitle=@ContestTitle, ContestDate=@ContestDate, Rank=@Rank, Status=@Status, ContestURL=@ContestURL, ModifiedDate=@ModifiedDate WHERE Id=@Id";
-                            cmd.Parameters.AddWithValue("@ContestTitle", ((TextBox)row.Cells[1].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@ContestDate", Convert.ToDateTime(((TextBox)row.Cells[2].Controls[0]).Text));
-                            cmd.Parameters.AddWithValue("@Rank", Convert.ToInt32(((TextBox)row.Cells[3].Controls[0]).Text));
-                            cmd.Parameters.AddWithValue("@Status", ((TextBox)row.Cells[4].Controls[0]).Text);
-                            cmd.Parameters.AddWithValue("@ContestURL", ((TextBox)row.Cells[5].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@ContestTitle", ((TextBox)row.Cells[0].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@ContestDate", Convert.ToDateTime(((TextBox)row.Cells[1].Controls[0]).Text));
+                            cmd.Parameters.AddWithValue("@Rank", Convert.ToInt32(((TextBox)row.Cells[2].Controls[0]).Text));
+                            cmd.Parameters.AddWithValue("@Status", ((TextBox)row.Cells[3].Controls[0]).Text);
+                            cmd.Parameters.AddWithValue("@ContestURL", ((TextBox)row.Cells[4].Controls[0]).Text);
                             break;
 
                         default:
@@ -327,12 +347,14 @@ namespace Portfolio.Admin
                     cmd.Parameters.AddWithValue("@ModifiedDate", DateTime.Now);
 
                     con.Open();
-                    return cmd.ExecuteNonQuery() > 0;
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    System.Diagnostics.Debug.WriteLine($"Update executed: {rowsAffected} rows affected");
+                    return rowsAffected > 0;
                 }
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("Update error: " + ex);
+                System.Diagnostics.Debug.WriteLine("Update error: " + ex.Message);
                 return false;
             }
         }
@@ -348,7 +370,7 @@ namespace Portfolio.Admin
                 if (ok)
                 {
                     ShowMessage("Record added successfully", "success");
-                    ClearAllFormControls();
+                    ClearFormTextValues();  // Clear form after successful save
                     BindCurrentTable(table);
                     UpdateTitles(table);
                 }
@@ -361,13 +383,6 @@ namespace Portfolio.Admin
             {
                 ShowMessage("Error: " + ex.Message, "error");
             }
-        }
-
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            ClearAllFormControls();
-            UpdateTitles(ddlTableSelector.SelectedValue);
-            ShowMessage("Form cleared", "success");
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -434,35 +449,50 @@ namespace Portfolio.Admin
 
                     cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
                     con.Open();
-                    return cmd.ExecuteNonQuery() > 0;
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    System.Diagnostics.Debug.WriteLine($"Insert executed: {rowsAffected} rows affected");
+                    return rowsAffected > 0;
                 }
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("Insert error: " + ex);
+                System.Diagnostics.Debug.WriteLine("Insert error: " + ex.Message);
                 return false;
             }
         }
 
-        private bool DeleteRecord(string table, int id)
+        // Method to clear only text values without hiding panels (used after successful save)
+        private void ClearFormTextValues()
         {
-            try
+            txtName.Text = string.Empty;
+            txtSolveCount.Text = string.Empty;
+            txtProfileURL.Text = string.Empty;
+            txtImageURL.Text = string.Empty;
+            txtGitHubURL.Text = string.Empty;
+            txtDisplayText.Text = string.Empty;
+            txtDescription.Text = string.Empty;
+            txtTags.Text = string.Empty;
+            txtPercentage.Text = string.Empty;
+            txtContestTitle.Text = string.Empty;
+            txtContestDate.Text = string.Empty;
+            txtRank.Text = string.Empty;
+            txtStatus.Text = string.Empty;
+            txtContestURL.Text = string.Empty;
+
+            // Reset dropdown to first option (if Skills is selected)
+            if (ddlSkillType.Items.Count > 0)
             {
-                using (var con = new SqlConnection(strcon))
-                using (var cmd = new SqlCommand($"DELETE FROM {table} WHERE Id=@Id", con))
-                {
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    con.Open();
-                    return cmd.ExecuteNonQuery() > 0;
-                }
+                ddlSkillType.SelectedIndex = 0;
             }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("Delete error: " + ex);
-                return false;
-            }
+
+            // Reset hidden field
+            hdnRecordId.Value = "0";
+
+            // Reset button text
+            btnSave.Text = "💾 Save Entry";
         }
 
+        // Method used when switching tables - hides panels and clears values
         private void ClearAllFormControls()
         {
             pnlName.Visible = pnlSolveCount.Visible = pnlProfileURL.Visible = pnlImageURL.Visible = pnlGitHubURL.Visible =
@@ -473,7 +503,7 @@ namespace Portfolio.Admin
             txtDescription.Text = txtTags.Text = txtPercentage.Text = txtContestTitle.Text = txtContestDate.Text = txtRank.Text =
             txtStatus.Text = txtContestURL.Text = string.Empty;
 
-            btnSave.Text = "Save Entry";
+            btnSave.Text = "💾 Save Entry";
         }
 
         private void ShowMessage(string message, string type)
