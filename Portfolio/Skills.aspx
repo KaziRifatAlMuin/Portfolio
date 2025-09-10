@@ -106,126 +106,27 @@
             </div>
         </section>
 
-        <!-- Online Judge Summary Section -->
+        <!-- Online Judge Summary Section - Dynamic from Database -->
         <section class="cp-section" aria-labelledby="judge-summary-title">
             <header class="cp-header">
                 <h2 id="judge-summary-title">Online Judge Profile Summary</h2>
                 <p>My journey across different competitive programming platforms</p>
             </header>
             
-            <div class="judge-grid" role="list">
-                <article class="judge-card" data-judge="codeforces" role="listitem">
-                    <header class="judge-header">
-                        <div class="judge-logo" aria-hidden="true">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <a href="https://codeforces.com/profile/rifatalmuin" target="_blank" rel="noopener noreferrer" class="judge-name" aria-label="Visit Codeforces profile">Codeforces</a>
-                    </header>
-                    <div class="judge-stats">
-                        <div class="problem-count" data-count="850" aria-label="850 problems solved">0</div>
-                        <div class="problem-label">Problems Solved</div>
-                        <div class="judge-rating">Specialist (1400+)</div>
-                    </div>
-                </article>
-
-                <article class="judge-card" data-judge="codechef" role="listitem">
-                    <header class="judge-header">
-                        <div class="judge-logo" aria-hidden="true">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <a href="https://www.codechef.com/users/rifat_246" target="_blank" rel="noopener noreferrer" class="judge-name" aria-label="Visit CodeChef profile">CodeChef</a>
-                    </header>
-                    <div class="judge-stats">
-                        <div class="problem-count" data-count="120" aria-label="120 problems solved">0</div>
-                        <div class="problem-label">Problems Solved</div>
-                        <div class="judge-rating">3 Star (1600+)</div>
-                    </div>
-                </article>
-
-                <article class="judge-card" data-judge="vjudge" role="listitem">
-                    <header class="judge-header">
-                        <div class="judge-logo" aria-hidden="true">
-                            <i class="fas fa-gavel"></i>
-                        </div>
-                        <a href="https://vjudge.net/user/rifat_al_muin" target="_blank" rel="noopener noreferrer" class="judge-name" aria-label="Visit VJudge profile">VJudge</a>
-                    </header>
-                    <div class="judge-stats">
-                        <div class="problem-count" data-count="350" aria-label="350 problems solved">0</div>
-                        <div class="problem-label">Problems Solved</div>
-                        <div class="judge-rating">Multi-Platform</div>
-                    </div>
-                </article>
-
-                <article class="judge-card" data-judge="hackerrank" role="listitem">
-                    <header class="judge-header">
-                        <div class="judge-logo" aria-hidden="true">
-                            <i class="fab fa-hackerrank"></i>
-                        </div>
-                        <a href="https://www.hackerrank.com/Rifatalmuin" target="_blank" rel="noopener noreferrer" class="judge-name" aria-label="Visit HackerRank profile">HackerRank</a>
-                    </header>
-                    <div class="judge-stats">
-                        <div class="problem-count" data-count="95" aria-label="95 problems solved">0</div>
-                        <div class="problem-label">Problems Solved</div>
-                        <div class="judge-rating">5 Star Gold</div>
-                    </div>
-                </article>
-
-                <article class="judge-card" data-judge="atcoder" role="listitem">
-                    <header class="judge-header">
-                        <div class="judge-logo" aria-hidden="true">
-                            <i class="fas fa-atom"></i>
-                        </div>
-                        <a href="https://atcoder.jp/users/rifatalmuin" target="_blank" rel="noopener noreferrer" class="judge-name" aria-label="Visit AtCoder profile">AtCoder</a>
-                    </header>
-                    <div class="judge-stats">
-                        <div class="problem-count" data-count="75" aria-label="75 problems solved">0</div>
-                        <div class="problem-label">Problems Solved</div>
-                        <div class="judge-rating">Brown (400+)</div>
-                    </div>
-                </article>
-
-                <article class="judge-card" data-judge="toph" role="listitem">
-                    <header class="judge-header">
-                        <div class="judge-logo" aria-hidden="true">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <a href="https://toph.co/u/rifat_246" target="_blank" rel="noopener noreferrer" class="judge-name" aria-label="Visit Toph profile">Toph</a>
-                    </header>
-                    <div class="judge-stats">
-                        <div class="problem-count" data-count="80" aria-label="80 problems solved">0</div>
-                        <div class="problem-label">Problems Solved</div>
-                        <div class="judge-rating">Bangladesh Platform</div>
-                    </div>
-                </article>
-
-                <article class="judge-card" data-judge="spoj" role="listitem">
-                    <header class="judge-header">
-                        <div class="judge-logo" aria-hidden="true">
-                            <i class="fas fa-terminal"></i>
-                        </div>
-                        <a href="https://www.spoj.com/users/rifatalmuin" target="_blank" rel="noopener noreferrer" class="judge-name" aria-label="Visit SPOJ profile">SPOJ</a>
-                    </header>
-                    <div class="judge-stats">
-                        <div class="problem-count" data-count="45" aria-label="45 problems solved">0</div>
-                        <div class="problem-label">Problems Solved</div>
-                        <div class="judge-rating">Classical Problems</div>
-                    </div>
-                </article>
-
-                <article class="judge-card" data-judge="leetcode" role="listitem">
-                    <header class="judge-header">
-                        <div class="judge-logo" aria-hidden="true">
-                            <i class="fas fa-code-branch"></i>
-                        </div>
-                        <a href="https://leetcode.com/rifat_246" target="_blank" rel="noopener noreferrer" class="judge-name" aria-label="Visit LeetCode profile">LeetCode</a>
-                    </header>
-                    <div class="judge-stats">
-                        <div class="problem-count" data-count="65" aria-label="65 problems solved">0</div>
-                        <div class="problem-label">Problems Solved</div>
-                        <div class="judge-rating">Interview Prep</div>
-                    </div>
-                </article>
+            <!-- Dynamic Judge Grid - Will be populated by JavaScript -->
+            <div class="judge-grid" role="list" id="judgeGrid">
+                <!-- Dynamic content will be loaded here from database -->
             </div>
+
+            <!-- No Judges Message Panel -->
+            <asp:Panel ID="pnlNoJudges" runat="server" CssClass="no-judges-message" Visible="false">
+                <div class="no-judges-container">
+                    <i class="fas fa-code" aria-hidden="true"></i>
+                    <h3>No Online Judge Entries Found</h3>
+                    <p>There are currently no competitive programming platform entries to display.</p>
+                    <p>Please check back later or contact the admin to add entries.</p>
+                </div>
+            </asp:Panel>
         </section>
 
         <!-- ICPC History Section -->
@@ -373,6 +274,97 @@
         </section>
     </section>
 
-    <!-- Load JavaScript for enhanced interactivity -->
+    <!-- Load JavaScript for enhanced interactivity and dynamic content -->
     <script src="scripts/skills.js" defer></script>
+
+    <style>
+        /* Additional styles for no judges message */
+        .no-judges-container {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(16, 7, 43, 0.8), rgba(14, 15, 43, 0.9));
+            border: 1px solid rgba(0, 255, 255, 0.15);
+            border-radius: 20px;
+            color: #b8c5d6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .no-judges-container i {
+            font-size: 4rem;
+            color: #00ffff;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            display: block;
+        }
+
+        .no-judges-container h3 {
+            color: #00ffff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .no-judges-container p {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Hide judge grid when no data */
+        .judge-grid:empty {
+            display: none;
+        }
+
+        /* Loading animation for judge cards */
+        .judge-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: judgeCardFadeIn 0.5s ease-out forwards;
+        }
+
+        .judge-card:nth-child(1) { animation-delay: 0.1s; }
+        .judge-card:nth-child(2) { animation-delay: 0.2s; }
+        .judge-card:nth-child(3) { animation-delay: 0.3s; }
+        .judge-card:nth-child(4) { animation-delay: 0.4s; }
+        .judge-card:nth-child(5) { animation-delay: 0.5s; }
+        .judge-card:nth-child(6) { animation-delay: 0.6s; }
+        .judge-card:nth-child(7) { animation-delay: 0.7s; }
+        .judge-card:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes judgeCardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive adjustments for no judges message */
+        @media (max-width: 768px) {
+            .no-judges-container {
+                padding: 3rem 1.5rem;
+            }
+
+            .no-judges-container i {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .no-judges-container h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .no-judges-container {
+                padding: 2rem 1rem;
+            }
+
+            .no-judges-container i {
+                font-size: 2.5rem;
+            }
+
+            .no-judges-container h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </asp:Content>

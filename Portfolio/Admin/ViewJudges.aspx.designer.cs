@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Portfolio
+namespace Portfolio.Admin
 {
 
 
-    public partial class Skills
+    public partial class ViewJudges
     {
 
         /// <summary>
@@ -22,5 +22,14 @@ namespace Portfolio
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlNoJudges;
+
+        /// <summary>
+        /// rptJudges control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptJudges;
     }
 }

@@ -1,10 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Portfolio\\",
+  "WorkspaceRootPath": "E:\\Portfolio-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio\\portfolio\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|e:\\portfolio-main\\portfolio\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\admin\\onlinejudgemanagement.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\onlinejudgemanagement.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\admin\\onlinejudgemanagement.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\onlinejudgemanagement.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\admin\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\admin\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|E:\\Portfolio-main\\portfolio\\admin\\viewjudges.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{38B1BF8A-20C7-4A1D-8BB4-6A1FBF6EA101}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\admin\\viewjudges.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,25 +42,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Home.aspx",
-              "DocumentMoniker": "E:\\Portfolio\\Portfolio\\Home.aspx",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Home.aspx",
               "RelativeDocumentMoniker": "Portfolio\\Home.aspx",
-              "ToolTip": "E:\\Portfolio\\Portfolio\\Home.aspx",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Home.aspx",
               "RelativeToolTip": "Portfolio\\Home.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2025-09-09T09:45:28.281Z",
               "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Bookmark",
@@ -45,6 +73,100 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Global.asax.cs",
+              "RelativeDocumentMoniker": "Portfolio\\Global.asax.cs",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Global.asax.cs",
+              "RelativeToolTip": "Portfolio\\Global.asax.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T06:22:47.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OnlineJudgeManagement.aspx.cs",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\OnlineJudgeManagement.aspx.cs",
+              "RelativeDocumentMoniker": "Portfolio\\Admin\\OnlineJudgeManagement.aspx.cs",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\OnlineJudgeManagement.aspx.cs",
+              "RelativeToolTip": "Portfolio\\Admin\\OnlineJudgeManagement.aspx.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAqwAsBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T06:14:38.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OnlineJudgeManagement.aspx",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\OnlineJudgeManagement.aspx",
+              "RelativeDocumentMoniker": "Portfolio\\Admin\\OnlineJudgeManagement.aspx",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\OnlineJudgeManagement.aspx",
+              "RelativeToolTip": "Portfolio\\Admin\\OnlineJudgeManagement.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-09-10T06:11:20.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Web.config",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Web.config",
+              "RelativeDocumentMoniker": "Portfolio\\Web.config",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Web.config",
+              "RelativeToolTip": "Portfolio\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-09-10T06:04:10.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.aspx.cs",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Login.aspx.cs",
+              "RelativeDocumentMoniker": "Portfolio\\Admin\\Login.aspx.cs",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Login.aspx.cs",
+              "RelativeToolTip": "Portfolio\\Admin\\Login.aspx.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwEQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T06:01:54.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.aspx",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\Login.aspx",
+              "RelativeDocumentMoniker": "Portfolio\\Admin\\Login.aspx",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\Login.aspx",
+              "RelativeToolTip": "Portfolio\\Admin\\Login.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-09-10T05:57:27.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ViewJudges.aspx",
+              "DocumentMoniker": "E:\\Portfolio-main\\Portfolio\\Admin\\ViewJudges.aspx",
+              "RelativeDocumentMoniker": "Portfolio\\Admin\\ViewJudges.aspx",
+              "ToolTip": "E:\\Portfolio-main\\Portfolio\\Admin\\ViewJudges.aspx",
+              "RelativeToolTip": "Portfolio\\Admin\\ViewJudges.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-09-10T05:58:28.316Z"
             }
           ]
         }

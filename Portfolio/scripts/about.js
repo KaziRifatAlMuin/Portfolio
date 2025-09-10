@@ -1,6 +1,6 @@
 ﻿// About page specific JavaScript for photo gallery and info cards
 
-// Photo Gallery - Fixed 3-Photo Display with 2.5s Interval
+// Photo Gallery - Fixed 3-Photo Display with faster interval
 document.addEventListener('DOMContentLoaded', function () {
     const photoSlots = {
         left: document.getElementById('photo-left'),
@@ -87,13 +87,13 @@ document.addEventListener('DOMContentLoaded', function () {
         updatePhotos();
     }
 
-    // Start automatic photo rotation with 2.5 second interval
+    // Start automatic photo rotation with faster 800ms interval
     function startAutoRotate() {
         if (autoRotateInterval) {
             clearInterval(autoRotateInterval);
         }
-        autoRotateInterval = setInterval(nextPhoto, 2500); // 2.5 seconds interval
-        console.log('Photo rotation started with 2.5s interval');
+        autoRotateInterval = setInterval(nextPhoto, 800); // Faster 0.8 seconds interval
+        console.log('Photo rotation started with 0.8s interval');
     }
 
     // Stop automatic photo rotation
@@ -111,9 +111,13 @@ document.addEventListener('DOMContentLoaded', function () {
         stopAutoRotate();
     }
 
-    // Resume after hover
+    // Resume after hover with immediate photo change
     function resumeRotation() {
         isPaused = false;
+        // Immediately advance to next photo when resuming
+        currentIndex = (currentIndex + 1) % photos.length;
+        updatePhotos();
+        // Then start the automatic rotation
         startAutoRotate();
     }
 
@@ -122,12 +126,12 @@ document.addEventListener('DOMContentLoaded', function () {
         dot.addEventListener('click', () => {
             stopAutoRotate();
             goToPhoto(index);
-            // Resume rotation after 3 seconds of inactivity
+            // Resume rotation after 2 seconds of inactivity
             setTimeout(() => {
                 if (!isPaused) {
                     startAutoRotate();
                 }
-            }, 3000);
+            }, 2000);
         });
     });
 
@@ -149,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updatePhotos();
     startAutoRotate();
 
-    console.log('Photo gallery initialized with 2.5s auto-rotation');
+    console.log('Photo gallery initialized with 0.8s auto-rotation');
 });
 
 // Info cards enhanced hover effects

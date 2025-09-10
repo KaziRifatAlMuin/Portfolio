@@ -1,161 +1,194 @@
-﻿// Enhanced Skills page JavaScript with scroll-triggered animations
+﻿// Skills page JavaScript with dynamic online judge data loading
+
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Skills page initialized');
+    // Initialize skill progress bars animation
+    initializeSkillBars();
 
-    // Initialize skill progress bars with scroll trigger
-    initializeSkillBarsOnScroll();
+    // Initialize counter animations
+    initializeCounters();
 
-    // Initialize problem counters with scroll trigger
-    initializeProblemCountersOnScroll();
+    // Load dynamic online judge data if available
+    loadOnlineJudgeData();
+});
 
-    // Add hover effects for interactive elements
-    addHoverEffects();
+function initializeSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress');
 
-    // FUNCTIONS
+    // Intersection Observer for skill bars animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBar = entry.target;
+                const targetWidth = progressBar.getAttribute('data-width');
 
-    // Initialize skill progress bars with Intersection Observer
-    function initializeSkillBarsOnScroll() {
-        const skillCategories = document.querySelectorAll('.skill-category');
+                setTimeout(() => {
+                    progressBar.style.width = targetWidth;
+                }, 300);
 
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                observer.unobserve(progressBar);
+            }
+        });
+    }, { threshold: 0.5 });
 
-                    progressBars.forEach((bar, index) => {
-                        setTimeout(() => {
-                            const width = bar.getAttribute('data-width');
-                            if (width) {
-                                bar.style.width = width;
-                                console.log(`Animating skill bar to ${width}`);
-                            }
-                        }, index * 200); // Staggered animation
-                    });
+    skillBars.forEach(bar => observer.observe(bar));
+}
 
-                    // Only animate once
-                    skillObserver.unobserve(entry.target);
+function initializeCounters() {
+    const counters = document.querySelectorAll('.problem-count');
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-count'));
+
+                if (target > 0) {
+                    animateCounter(counter, 0, target, 2000);
+                    counter.classList.add('counting');
                 }
-            });
-        }, {
-            threshold: 0.2, // Trigger when 20% of element is visible
-            rootMargin: '0px 0px -50px 0px' // Trigger slightly before reaching viewport
-        });
 
-        skillCategories.forEach(category => {
-            skillObserver.observe(category);
+                counterObserver.unobserve(counter);
+            }
         });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+}
+
+function animateCounter(element, start, end, duration) {
+    const range = end - start;
+    const increment = range / (duration / 16);
+    let current = start;
+
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= end) {
+            current = end;
+            clearInterval(timer);
+        }
+        element.textContent = Math.floor(current).toLocaleString();
+    }, 16);
+}
+
+function loadOnlineJudgeData() {
+    // Check if dynamic data is available
+    if (typeof window.onlineJudgeData !== 'undefined' && window.onlineJudgeData.length > 0) {
+        console.log('Loading online judge data:', window.onlineJudgeData);
+        updateJudgeCards(window.onlineJudgeData);
+    } else {
+        console.log('No online judge data available');
+        // Hide the judge grid if no data
+        const judgeGrid = document.querySelector('.judge-grid');
+        if (judgeGrid) {
+            judgeGrid.style.display = 'none';
+        }
     }
+}
 
-    // Initialize problem counters with scroll trigger
-    function initializeProblemCountersOnScroll() {
-        const judgeCards = document.querySelectorAll('.judge-card');
+function updateJudgeCards(judgeData) {
+    const judgeGrid = document.querySelector('.judge-grid');
+    if (!judgeGrid) return;
 
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const problemCount = entry.target.querySelector('.problem-count');
-                    if (problemCount && problemCount.getAttribute('data-count')) {
-                        const target = parseInt(problemCount.getAttribute('data-count'));
+    // Define coding-related logos (cycling through these)
+    const logoIcons = [
+        'fas fa-code',
+        'fas fa-terminal',
+        'fas fa-laptop-code',
+        'fas fa-bug',
+        'fas fa-cogs',
+        'fas fa-rocket'
+    ];
 
-                        // Add staggered animation delay based on card index
-                        const cards = document.querySelectorAll('.judge-card');
-                        const index = Array.from(cards).indexOf(entry.target);
+    // Clear existing static cards
+    judgeGrid.innerHTML = '';
+    judgeGrid.style.display = 'grid';
 
-                        setTimeout(() => {
-                            animateCounter(problemCount, target);
-                            console.log(`Animating counter ${index} to ${target}`);
-                        }, index * 150); // Staggered by 150ms each
-                    }
+    // Create dynamic cards from database
+    judgeData.forEach((judge, index) => {
+        const logoIcon = logoIcons[index % logoIcons.length];
 
-                    // Only animate once
-                    counterObserver.unobserve(entry.target);
-                }
+        const judgeCard = createJudgeCard(judge, logoIcon);
+        judgeGrid.appendChild(judgeCard);
+    });
+
+    // Re-initialize counters for new cards
+    setTimeout(() => {
+        initializeCounters();
+    }, 100);
+
+    console.log(`Created ${judgeData.length} judge cards`);
+}
+
+function createJudgeCard(judge, logoIcon) {
+    const card = document.createElement('article');
+    card.className = 'judge-card';
+    card.setAttribute('role', 'listitem');
+    card.setAttribute('data-judge', judge.judgeName.toLowerCase().replace(/\s+/g, ''));
+
+    // Generate rating text based on solve count
+    const rating = generateRating(judge.solveCount);
+
+    card.innerHTML = `
+        <header class="judge-header">
+            <div class="judge-logo" aria-hidden="true">
+                <i class="${logoIcon}"></i>
+            </div>
+            <a href="${judge.profileLink}" target="_blank" rel="noopener noreferrer" 
+               class="judge-name" aria-label="Visit ${judge.judgeName} profile">${judge.judgeName}</a>
+        </header>
+        <div class="judge-stats">
+            <div class="problem-count" data-count="${judge.solveCount}" 
+                 aria-label="${judge.solveCount} problems solved">0</div>
+            <div class="problem-label">Problems Solved</div>
+            <div class="judge-rating">${rating}</div>
+        </div>
+    `;
+
+    return card;
+}
+
+function generateRating(solveCount) {
+    if (solveCount >= 1000) return 'Expert Level';
+    if (solveCount >= 500) return 'Advanced';
+    if (solveCount >= 200) return 'Intermediate';
+    if (solveCount >= 50) return 'Beginner+';
+    return 'Beginner';
+}
+
+// Add smooth scrolling for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-        }, {
-            threshold: 0.3, // Trigger when 30% of card is visible
-            rootMargin: '0px 0px -20px 0px'
-        });
+        }
+    });
+});
 
-        judgeCards.forEach(card => {
-            counterObserver.observe(card);
-        });
-    }
-
-    // Counter animation function
-    function animateCounter(element, target, duration = 1500) {
-        let start = 0;
-        const increment = target / (duration / 16);
-
-        function updateCounter() {
-            start += increment;
-            if (start < target) {
-                element.textContent = Math.floor(start);
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = target;
-                element.classList.add('counting');
+// Enhanced accessibility - keyboard navigation for cards
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        const focused = document.activeElement;
+        if (focused.classList.contains('judge-card')) {
+            const link = focused.querySelector('.judge-name');
+            if (link) {
+                link.click();
             }
         }
-
-        updateCounter();
-    }
-
-    // Add hover effects for interactive elements
-    function addHoverEffects() {
-        // Judge cards hover effects
-        const judgeCards = document.querySelectorAll('.judge-card');
-        judgeCards.forEach(card => {
-            card.addEventListener('mouseenter', function () {
-                const logo = this.querySelector('.judge-logo');
-                const count = this.querySelector('.problem-count');
-                const rating = this.querySelector('.judge-rating');
-
-                if (logo) logo.style.transform = 'scale(1.15) rotate(15deg)';
-                if (count) count.style.transform = 'scale(1.15)';
-                if (rating) rating.style.transform = 'scale(1.1)';
-            });
-
-            card.addEventListener('mouseleave', function () {
-                const logo = this.querySelector('.judge-logo');
-                const count = this.querySelector('.problem-count');
-                const rating = this.querySelector('.judge-rating');
-
-                if (logo) logo.style.transform = 'scale(1) rotate(0deg)';
-                if (count) count.style.transform = 'scale(1)';
-                if (rating) rating.style.transform = 'scale(1)';
-            });
-        });
-
-        // Contest rows hover effects
-        const contestRows = document.querySelectorAll('.contest-row');
-        contestRows.forEach(row => {
-            row.addEventListener('mouseenter', function () {
-                const rankBadge = this.querySelector('.rank-badge');
-                const statusBadge = this.querySelector('.status-badge');
-
-                if (rankBadge) rankBadge.style.transform = 'scale(1.1)';
-                if (statusBadge) statusBadge.style.transform = 'scale(1.1)';
-            });
-
-            row.addEventListener('mouseleave', function () {
-                const rankBadge = this.querySelector('.rank-badge');
-                const statusBadge = this.querySelector('.status-badge');
-
-                if (rankBadge) rankBadge.style.transform = 'scale(1)';
-                if (statusBadge) statusBadge.style.transform = 'scale(1)';
-            });
-        });
-
-        // Table container hover effects
-        const tableContainers = document.querySelectorAll('.contest-table-container');
-        tableContainers.forEach(container => {
-            container.addEventListener('mouseenter', function () {
-                this.style.transform = 'translateY(-3px)';
-            });
-
-            container.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0)';
-            });
-        });
     }
 });
+
+// Add tabindex for keyboard navigation
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(() => {
+        document.querySelectorAll('.judge-card').forEach(card => {
+            card.setAttribute('tabindex', '0');
+        });
+    }, 500);
+});
+
+console.log('Skills page JavaScript loaded successfully with dynamic online judge support');

@@ -109,5 +109,15 @@
         </div>
     </section>
 
+    <!-- Admin Login Section -->
+    <section class="admin-login-section">
+        <div class="admin-login-container">
+            <a href="Admin/Login.aspx" class="admin-login-btn">
+                <i class="fas fa-user-shield"></i>
+                <span>Admin Login</span>
+            </a>
+        </div>
+    </section>
+
     <script src="scripts/home.js"></script>
 </asp:Content>
